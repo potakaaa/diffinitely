@@ -1,23 +1,22 @@
 # 🧮 Diffinitely
 
-**Diffinitely** is a PyQt-powered calculator that helps you solve both **derivatives** and **integrals** with ease. Built for students, educators, and anyone learning calculus, it provides an intuitive interface for symbolic differentiation and integration.
+**Diffinitely** is a calculus calculator built with **PySide** that allows users to easily compute **derivatives** and **integrals**. Designed with a user-friendly interface, it’s perfect for students, educators, and anyone learning or reviewing calculus concepts.
 
 ---
 
 ## 🚀 Features
 
-- 📈 Solve derivatives of mathematical expressions
-- ∫ Compute definite and indefinite integrals
-- 🧠 Powered by [SymPy](https://www.sympy.org/) for symbolic math
-- 💻 Clean and responsive PyQt GUI
-- 🎓 Ideal for students, tutors, and calculus enthusiasts
+- 📈 Symbolic derivative computation
+- ∫ Supports definite and indefinite integrals
+- 🧠 Uses [SymPy](https://www.sympy.org/) for accurate symbolic math
+- 🖥️ Built with PySide for a sleek and responsive UI
+- 🎓 Educational tool for understanding calculus operations
 
 ---
 
 ## 📸 Preview
 
-> *(Insert screenshot here)*  
-> A quick look at the user-friendly interface.
+> *(Insert screenshots of the interface here)*
 
 ---
 
@@ -44,28 +43,28 @@ python main.py
 ## 📦 Dependencies
 
 - Python 3.7+
-- PyQt5
+- PySide6
 - SymPy
 
-You can install them via:
+Install them with:
 
 ```bash
-pip install pyqt5 sympy
+pip install pyside6 sympy
 ```
 
 ---
 
 ## 🛠 Usage
 
-- Enter a function (e.g. `x**2 + sin(x)`)
-- Choose whether to compute a derivative or integral
-- Click "Solve" to get the result instantly
+1. Enter a function (e.g., `x**2 + sin(x)`)
+2. Choose **Derivative** or **Integral**
+3. Press **Solve** and get the result immediately
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests and feedback are welcome! Feel free to open an issue or suggest features.
+Contributions, issues, and feature requests are welcome! Feel free to open a pull request or issue to improve the app.
 
 ---
 
@@ -77,6 +76,6 @@ MIT License © 2025 [Your Name]
 
 ## ✨ Acknowledgments
 
-- Built with PyQt5
-- Symbolic math handled by SymPy
+- UI built with PySide6
+- Math engine powered by SymPy
 ```
