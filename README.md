@@ -24,7 +24,7 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/diffinitely.git
+git clone https://github.com/potakaaa/diffinitely.git
 cd diffinitely
 ```
 
@@ -70,7 +70,7 @@ Contributions, issues, and feature requests are welcome! Feel free to open a pul
 
 ## 📄 License
 
-MIT License © 2025 [Your Name]
+MIT License © 2025 [Diffinitely]
 
 ---
 
