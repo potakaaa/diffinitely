@@ -1,36 +1,43 @@
+from helper.input_checker import InputChecker
+
 class NumberButtons:
     def __init__(self, lineEdit):
         self.lineEdit = lineEdit
+        self.input_checker = InputChecker(self.lineEdit)
+
+    def _add_number(self, number):
+        if self.input_checker.isNextInputValid():
+            self.lineEdit.setText(self.lineEdit.text() + str(number))
 
     def zero_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "0")
+        self._add_number(0)
 
     def one_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "1")
+        self._add_number(1)
 
     def two_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "2")
+        self._add_number(2)
 
     def three_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "3")
+        self._add_number(3)
 
     def four_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "4")
+        self._add_number(4)
 
     def five_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "5")
+        self._add_number(5)
 
     def six_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "6")
+        self._add_number(6)
 
     def seven_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "7")
+        self._add_number(7)
 
     def eight_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "8")
+        self._add_number(8)
 
     def nine_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "9")
+        self._add_number(9)
 
 class OperatorButtons:
     def __init__(self, lineEdit):
@@ -51,6 +58,19 @@ class OperatorButtons:
     def equals_button_clicked(self):
         # TODO: Implement equals button
         pass
+
+class OtherButtons:
+    def __init__(self, lineEdit):
+        self.lineEdit = lineEdit
+
+    def del_button_clicked(self):
+        self.lineEdit.setText(self.lineEdit.text()[:-1])
+
+    def clear_button_clicked(self):
+        self.lineEdit.setText("")
+
+    
+
 
 
 

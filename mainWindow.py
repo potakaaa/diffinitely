@@ -1,7 +1,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
 from ui.main_window import Ui_MainWindow
-from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons
+from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons, OtherButtons
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -33,4 +33,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.div_button.clicked.connect(lambda: self.operator_buttons.divide_button_clicked())
         self.equal_button.clicked.connect(lambda: self.operator_buttons.equals_button_clicked())
         
-        
+        # Other buttons
+        self.other_buttons = OtherButtons(self.input_edit)
+
+        self.del_button.clicked.connect(lambda: self.other_buttons.del_button_clicked())
+        self.clear_button.clicked.connect(lambda: self.other_buttons.clear_button_clicked())
