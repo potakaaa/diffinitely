@@ -1,7 +1,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
 from ui.main_window import Ui_MainWindow
-from functions.calc_buttons.calc_buttons import NumberButtons
+from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -10,7 +10,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Diffinitely")
 
-        # Number Buttons
+        # Number buttons
         self.number_buttons = NumberButtons(self.input_edit)
 
         self.zero_button.clicked.connect(lambda: self.number_buttons.zero_button_clicked())
@@ -24,5 +24,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.eight_button.clicked.connect(lambda: self.number_buttons.eight_button_clicked())
         self.nine_button.clicked.connect(lambda: self.number_buttons.nine_button_clicked())
 
+        # Operator buttons
+        self.operator_buttons = OperatorButtons(self.input_edit)
+
+        self.add_button.clicked.connect(lambda: self.operator_buttons.add_button_clicked())
+        self.minus_button.clicked.connect(lambda: self.operator_buttons.subtract_button_clicked())
+        self.mul_button.clicked.connect(lambda: self.operator_buttons.multiply_button_clicked())
+        self.div_button.clicked.connect(lambda: self.operator_buttons.divide_button_clicked())
+        self.equal_button.clicked.connect(lambda: self.operator_buttons.equals_button_clicked())
         
         
