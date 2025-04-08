@@ -25,8 +25,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(684, 523)
+        MainWindow.resize(896, 579)
         MainWindow.setMinimumSize(QSize(684, 523))
+        MainWindow.setMaximumSize(QSize(896, 579))
         self.actionNew = QAction(MainWindow)
         self.actionNew.setObjectName(u"actionNew")
         self.actionOpen = QAction(MainWindow)
@@ -55,6 +56,9 @@ class Ui_MainWindow(object):
         self.actionGithub_Link.setObjectName(u"actionGithub_Link")
         self.mainWidget = QWidget(MainWindow)
         self.mainWidget.setObjectName(u"mainWidget")
+        font = QFont()
+        font.setFamilies([u"Poppins"])
+        self.mainWidget.setFont(font)
         self.gridLayout = QGridLayout(self.mainWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalLayout = QVBoxLayout()
@@ -100,6 +104,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self._1st_derivative_label = QLabel(self.right_widget)
         self._1st_derivative_label.setObjectName(u"_1st_derivative_label")
+        self._1st_derivative_label.setMaximumSize(QSize(432, 17))
 
         self.verticalLayout_5.addWidget(self._1st_derivative_label)
 
@@ -426,6 +431,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addLayout(self.verticalLayout_8)
 
         self.verticalLayout_9 = QVBoxLayout()
+        self.verticalLayout_9.setSpacing(3)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(-1, -1, -1, 7)
         self.label_6 = QLabel(self.bottom_widget)
@@ -450,7 +456,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainWidget)
         self.menuBar = QMenuBar(MainWindow)
         self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 684, 33))
+        self.menuBar.setGeometry(QRect(0, 0, 896, 33))
         self.menuFile = QMenu(self.menuBar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuEdit = QMenu(self.menuBar)
