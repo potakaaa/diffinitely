@@ -6,21 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>896</width>
-    <height>579</height>
+    <width>684</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>684</width>
-    <height>523</height>
+    <height>680</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>896</width>
-    <height>579</height>
+    <height>900</height>
    </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Poppins</family>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -34,34 +39,118 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
       <item>
-       <widget class="QWidget" name="widget" native="true">
+       <widget class="QWidget" name="top_widget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="spacing">
+            <number>10</number>
+           </property>
            <item>
             <widget class="QWidget" name="left_widget" native="true">
              <layout class="QVBoxLayout" name="verticalLayout_7">
+              <property name="spacing">
+               <number>20</number>
+              </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_2">
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
                 <item>
-                 <widget class="QLabel" name="input_label">
-                  <property name="text">
-                   <string>Input</string>
-                  </property>
-                 </widget>
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <item alignment="Qt::AlignmentFlag::AlignBottom">
+                   <widget class="QLabel" name="input_label">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Input</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="input_edit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>afasdfasd</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="input_edit">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
+                 <layout class="QVBoxLayout" name="verticalLayout_13">
+                  <item alignment="Qt::AlignmentFlag::AlignBottom">
+                   <widget class="QLabel" name="n_value_label_2">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>N-value</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="n_value_edit_2">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </item>
               <item>
-               <widget class="QWidget" name="graph_widget" native="true"/>
+               <widget class="QWidget" name="graph_widget" native="true">
+                <widget class="QLabel" name="label">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>37</width>
+                   <height>17</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Graph</string>
+                 </property>
+                </widget>
+               </widget>
               </item>
              </layout>
             </widget>
@@ -69,14 +158,29 @@
            <item>
             <widget class="QWidget" name="right_widget" native="true">
              <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_5">
-                <item>
-                 <widget class="QLabel" name="_1st_derivative_label">
+                <item alignment="Qt::AlignmentFlag::AlignBottom">
+                 <widget class="QLabel" name="derivative_1st_label">
                   <property name="maximumSize">
                    <size>
                     <width>432</width>
-                    <height>17</height>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="text">
@@ -85,47 +189,121 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="_1st_derivative_edit"/>
+                 <widget class="QLineEdit" name="derivative_1st_edit">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_4">
-                <item>
-                 <widget class="QLabel" name="_2nd_derivative_label">
+                <item alignment="Qt::AlignmentFlag::AlignBottom">
+                 <widget class="QLabel" name="derivative_2nd_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>2nd Derivative</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="_2nd_derivative_edit"/>
+                 <widget class="QLineEdit" name="derivative_2nd_edit">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_3">
-                <item>
+                <item alignment="Qt::AlignmentFlag::AlignBottom">
                  <widget class="QLabel" name="nth_derivative_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Nth Derivative</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="nth_derivative_edit"/>
+                 <widget class="QLineEdit" name="nth_derivative_edit">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
               <item>
-               <widget class="QLabel" name="integral_label">
-                <property name="text">
-                 <string>Integral</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="integral_edit"/>
+               <layout class="QVBoxLayout" name="verticalLayout_10">
+                <item alignment="Qt::AlignmentFlag::AlignBottom">
+                 <widget class="QLabel" name="integral_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>Integral</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="integral_edit">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>
@@ -137,6 +315,12 @@
       </item>
       <item>
        <widget class="QWidget" name="bottom_widget" native="true">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>250</height>
+         </size>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="spacing">
           <number>15</number>
@@ -147,7 +331,7 @@
             <number>2</number>
            </property>
            <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="x_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -166,7 +350,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="y_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -185,7 +369,7 @@
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QPushButton" name="pushButton_3">
+            <widget class="QPushButton" name="a_2_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -204,7 +388,7 @@
             </widget>
            </item>
            <item row="0" column="3">
-            <widget class="QPushButton" name="pushButton_4">
+            <widget class="QPushButton" name="a_b_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -223,7 +407,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton_7">
+            <widget class="QPushButton" name="open_parenthesis_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -242,7 +426,7 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_6">
+            <widget class="QPushButton" name="close_parenthesis_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -261,7 +445,7 @@
             </widget>
            </item>
            <item row="1" column="2">
-            <widget class="QPushButton" name="pushButton_5">
+            <widget class="QPushButton" name="less_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -280,7 +464,7 @@
             </widget>
            </item>
            <item row="1" column="3">
-            <widget class="QPushButton" name="pushButton_8">
+            <widget class="QPushButton" name="great_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -299,7 +483,7 @@
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QPushButton" name="pushButton_9">
+            <widget class="QPushButton" name="fact_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -318,7 +502,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QPushButton" name="pushButton_12">
+            <widget class="QPushButton" name="apos_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -337,7 +521,7 @@
             </widget>
            </item>
            <item row="2" column="2">
-            <widget class="QPushButton" name="pushButton_10">
+            <widget class="QPushButton" name="less_equal_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -356,7 +540,7 @@
             </widget>
            </item>
            <item row="2" column="3">
-            <widget class="QPushButton" name="pushButton_11">
+            <widget class="QPushButton" name="great_equal_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -375,7 +559,7 @@
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QPushButton" name="pushButton_15">
+            <widget class="QPushButton" name="x_fact_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -394,7 +578,7 @@
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QPushButton" name="pushButton_14">
+            <widget class="QPushButton" name="percent_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -413,7 +597,7 @@
             </widget>
            </item>
            <item row="3" column="2">
-            <widget class="QPushButton" name="pushButton_16">
+            <widget class="QPushButton" name="sqrt_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -432,7 +616,7 @@
             </widget>
            </item>
            <item row="3" column="3">
-            <widget class="QPushButton" name="pushButton_13">
+            <widget class="QPushButton" name="pi_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -461,7 +645,7 @@
             <number>2</number>
            </property>
            <item row="3" column="0">
-            <widget class="QPushButton" name="pushButton_29">
+            <widget class="QPushButton" name="zero_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -480,7 +664,7 @@
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QPushButton" name="pushButton_19">
+            <widget class="QPushButton" name="nine_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -499,7 +683,7 @@
             </widget>
            </item>
            <item row="2" column="3">
-            <widget class="QPushButton" name="pushButton_28">
+            <widget class="QPushButton" name="minus_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -518,7 +702,7 @@
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton_17">
+            <widget class="QPushButton" name="seven_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -537,7 +721,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton_21">
+            <widget class="QPushButton" name="four_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -556,7 +740,7 @@
             </widget>
            </item>
            <item row="2" column="0">
-            <widget class="QPushButton" name="pushButton_25">
+            <widget class="QPushButton" name="one_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -575,7 +759,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QPushButton" name="pushButton_26">
+            <widget class="QPushButton" name="two_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -594,7 +778,7 @@
             </widget>
            </item>
            <item row="0" column="3" alignment="Qt::AlignmentFlag::AlignHCenter">
-            <widget class="QPushButton" name="pushButton_20">
+            <widget class="QPushButton" name="div_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -613,7 +797,7 @@
             </widget>
            </item>
            <item row="1" column="2">
-            <widget class="QPushButton" name="pushButton_23">
+            <widget class="QPushButton" name="six_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -632,7 +816,7 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_22">
+            <widget class="QPushButton" name="five_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -651,7 +835,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QPushButton" name="pushButton_18">
+            <widget class="QPushButton" name="eight_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -670,7 +854,7 @@
             </widget>
            </item>
            <item row="1" column="3">
-            <widget class="QPushButton" name="pushButton_24">
+            <widget class="QPushButton" name="mul_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -689,7 +873,7 @@
             </widget>
            </item>
            <item row="3" column="3">
-            <widget class="QPushButton" name="pushButton_32">
+            <widget class="QPushButton" name="add_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -708,7 +892,7 @@
             </widget>
            </item>
            <item row="2" column="2">
-            <widget class="QPushButton" name="pushButton_27">
+            <widget class="QPushButton" name="three_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -727,7 +911,7 @@
             </widget>
            </item>
            <item row="3" column="1" colspan="2">
-            <widget class="QPushButton" name="pushButton_31">
+            <widget class="QPushButton" name="equal_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -753,7 +937,7 @@
             <number>2</number>
            </property>
            <item>
-            <widget class="QPushButton" name="pushButton_33">
+            <widget class="QPushButton" name="more_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -766,7 +950,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_34">
+            <widget class="QPushButton" name="del_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -779,7 +963,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_35">
+            <widget class="QPushButton" name="clear_button">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -809,10 +993,10 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <property name="spacing">
-            <number>3</number>
+            <number>5</number>
            </property>
            <property name="bottomMargin">
-            <number>7</number>
+            <number>5</number>
            </property>
            <item>
             <widget class="QLabel" name="label_6">
@@ -838,11 +1022,17 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>896</width>
+     <width>684</width>
      <height>33</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
+    <property name="minimumSize">
+     <size>
+      <width>160</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="title">
      <string>File</string>
     </property>
@@ -851,7 +1041,21 @@
     <addaction name="actionSave"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
+   <widget class="QMenu" name="menuView">
+    <property name="geometry">
+     <rect>
+      <x>607</x>
+      <y>287</y>
+      <width>160</width>
+      <height>174</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>160</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="title">
      <string>View</string>
     </property>
@@ -861,7 +1065,13 @@
     <addaction name="actionTheme"/>
     <addaction name="actionShow_Hide"/>
    </widget>
-   <widget class="QMenu" name="menuEdit_2">
+   <widget class="QMenu" name="menuEdit">
+    <property name="minimumSize">
+     <size>
+      <width>160</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="title">
      <string>Edit</string>
     </property>
@@ -870,78 +1080,131 @@
     <addaction name="actionClear"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
+    <property name="geometry">
+     <rect>
+      <x>724</x>
+      <y>287</y>
+      <width>200</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>160</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="title">
      <string>About</string>
     </property>
     <addaction name="actionGithub_Link"/>
    </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuView"/>
    <addaction name="menuEdit"/>
-   <addaction name="menuEdit_2"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentNew"/>
+   </property>
    <property name="text">
     <string>New</string>
    </property>
   </action>
   <action name="actionOpen">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentOpen"/>
+   </property>
    <property name="text">
     <string>Open</string>
    </property>
   </action>
   <action name="actionSave">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
+   </property>
    <property name="text">
     <string>Save</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::WindowClose"/>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
   <action name="actionZoom_In">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::ZoomIn"/>
+   </property>
    <property name="text">
     <string>Zoom In</string>
    </property>
   </action>
   <action name="actionZoom_Out">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::ZoomOut"/>
+   </property>
    <property name="text">
     <string>Zoom Out</string>
    </property>
   </action>
   <action name="actionReset">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::SystemReboot"/>
+   </property>
    <property name="text">
     <string>Reset </string>
    </property>
   </action>
   <action name="actionTheme">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::WeatherClear"/>
+   </property>
    <property name="text">
     <string>Dark Mode</string>
    </property>
   </action>
   <action name="actionShow_Hide">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::WindowNew"/>
+   </property>
    <property name="text">
     <string>Show/Hide</string>
    </property>
   </action>
   <action name="actionUndo">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::EditUndo"/>
+   </property>
    <property name="text">
     <string>Undo</string>
    </property>
   </action>
   <action name="actionRedo">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::EditRedo"/>
+   </property>
    <property name="text">
     <string>Redo</string>
    </property>
   </action>
   <action name="actionClear">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::EditClear"/>
+   </property>
    <property name="text">
     <string>Clear</string>
    </property>
   </action>
   <action name="actionGithub_Link">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DialogInformation"/>
+   </property>
    <property name="text">
     <string>Github Link</string>
    </property>
