@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(684, 700)
+        MainWindow.resize(684, 680)
         MainWindow.setMinimumSize(QSize(684, 680))
         MainWindow.setMaximumSize(QSize(896, 900))
         font = QFont()
@@ -603,7 +603,7 @@ class Ui_MainWindow(object):
         self.actionClear.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.actionGithub_Link.setText(QCoreApplication.translate("MainWindow", u"Github Link", None))
         self.input_label.setText(QCoreApplication.translate("MainWindow", u"Input", None))
-        self.input_edit.setText(QCoreApplication.translate("MainWindow", u"afasdfasd", None))
+        self.input_edit.setText("")
         self.n_value_label_2.setText(QCoreApplication.translate("MainWindow", u"N-value", None))
         self.n_value_edit_2.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"Graph", None))
