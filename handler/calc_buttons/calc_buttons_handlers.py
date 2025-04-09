@@ -32,3 +32,22 @@ class CalcButtonHandler:
 
         self.ui.del_button.clicked.connect(lambda: self.other_buttons.del_button_clicked())
         self.ui.clear_button.clicked.connect(lambda: self.other_buttons.clear_button_clicked())
+
+        # Special Buttons
+        self.special_buttons = SpecialButtons(self.ui.input_edit)
+        self.ui.x_button.clicked.connect(self.special_buttons.x_button_clicked)
+        self.ui.y_button.clicked.connect(self.special_buttons.y_button_clicked)
+        self.ui.a_2_button.clicked.connect(self.special_buttons.a_squared_button_clicked)
+        self.ui.a_b_button.clicked.connect(self.special_buttons.a_power_b_button_clicked)
+        self.ui.open_parenthesis_button.clicked.connect(self.special_buttons.open_parenthesis_button_clicked)
+        self.ui.close_parenthesis_button.clicked.connect(self.special_buttons.close_parenthesis_button_clicked)
+        self.ui.less_button.clicked.connect(self.special_buttons.less_button_clicked)
+        self.ui.great_button.clicked.connect(self.special_buttons.greater_button_clicked)
+        self.ui.less_equal_button.clicked.connect(self.special_buttons.less_equal_button_clicked)
+        self.ui.great_equal_button.clicked.connect(self.special_buttons.greater_equal_button_clicked)
+        self.ui.fact_button.clicked.connect(self.special_buttons.factorial_button_clicked)
+        self.ui.x_fact_button.clicked.connect(self.special_buttons.x_fact_button_clicked)
+        self.ui.apos_button.clicked.connect(self.special_buttons.apostrophe_button_clicked)
+        self.ui.percent_button.clicked.connect(self.special_buttons.percent_button_clicked)
+        self.ui.sqrt_button.clicked.connect(self.special_buttons.sqrt_button_clicked)
+        self.ui.pi_button.clicked.connect(self.special_buttons.pi_button_clicked)
