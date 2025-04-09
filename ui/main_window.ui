@@ -100,7 +100,7 @@
                 <item>
                  <layout class="QVBoxLayout" name="verticalLayout_13">
                   <item alignment="Qt::AlignmentFlag::AlignBottom">
-                   <widget class="QLabel" name="n_value_label_2">
+                   <widget class="QLabel" name="n_value_label">
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
@@ -113,7 +113,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="n_value_edit_2">
+                   <widget class="QLineEdit" name="n_value_edit">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                       <horstretch>0</horstretch>
@@ -1047,7 +1047,7 @@
       <x>607</x>
       <y>287</y>
       <width>160</width>
-      <height>174</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -1084,8 +1084,8 @@
      <rect>
       <x>724</x>
       <y>287</y>
-      <width>200</width>
-      <height>78</height>
+      <width>160</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="minimumSize">

@@ -1,8 +1,9 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
-from PySide6.QtGui import QFont, QIcon
+from PySide6.QtGui import QFont, QIcon, QIntValidator
 from ui.main_window import Ui_MainWindow
 from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons, OtherButtons, SpecialButtons
+from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -42,35 +43,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.sqrt_button.clicked.connect(self.special_buttons.sqrt_button_clicked)
         self.pi_button.clicked.connect(self.special_buttons.pi_button_clicked)
 
+        self.n_value_edit.setValidator(QIntValidator(0, 1000))
 
-        # Number buttons
-        self.number_buttons = NumberButtons(self.input_edit)
-
-        self.zero_button.clicked.connect(lambda: self.number_buttons.zero_button_clicked())
-        self.one_button.clicked.connect(lambda: self.number_buttons.one_button_clicked())
-        self.two_button.clicked.connect(lambda: self.number_buttons.two_button_clicked())
-        self.three_button.clicked.connect(lambda: self.number_buttons.three_button_clicked())
-        self.four_button.clicked.connect(lambda: self.number_buttons.four_button_clicked())
-        self.five_button.clicked.connect(lambda: self.number_buttons.five_button_clicked())
-        self.six_button.clicked.connect(lambda: self.number_buttons.six_button_clicked())  
-        self.seven_button.clicked.connect(lambda: self.number_buttons.seven_button_clicked())
-        self.eight_button.clicked.connect(lambda: self.number_buttons.eight_button_clicked())
-        self.nine_button.clicked.connect(lambda: self.number_buttons.nine_button_clicked())
-
-        # Operator buttons
-        self.operator_buttons = OperatorButtons(self.input_edit)
-
-        self.add_button.clicked.connect(lambda: self.operator_buttons.add_button_clicked())
-        self.minus_button.clicked.connect(lambda: self.operator_buttons.subtract_button_clicked())
-        self.mul_button.clicked.connect(lambda: self.operator_buttons.multiply_button_clicked())
-        self.div_button.clicked.connect(lambda: self.operator_buttons.divide_button_clicked())
-        self.equal_button.clicked.connect(lambda: self.operator_buttons.equals_button_clicked())
-        
-        # Other buttons
-        self.other_buttons = OtherButtons(self.input_edit)
-
-        self.del_button.clicked.connect(lambda: self.other_buttons.del_button_clicked())
-        self.clear_button.clicked.connect(lambda: self.other_buttons.clear_button_clicked())
+        self.calc_button_handler = CalcButtonHandler(self)
 
         # set initial font size
         self.update_ui_font_size()
@@ -89,7 +64,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Update the font size of all UI components."""
         # ui components to update on zoom
         elements = [
-            self.input_label, self.input_edit, self.n_value_label_2, self.label,
+            self.input_label, self.input_edit, self.n_value_label, self.label,
             self.derivative_1st_label, self.derivative_2nd_label, self.nth_derivative_label,
             self.integral_label, self.x_button, self.y_button, self.a_2_button,
             self.a_b_button, self.open_parenthesis_button, self.close_parenthesis_button,
