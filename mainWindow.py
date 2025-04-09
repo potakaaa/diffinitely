@@ -2,7 +2,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QFont, QIcon
 from ui.main_window import Ui_MainWindow
-from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons, OtherButtons
+from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons, OtherButtons, SpecialButtons
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -22,6 +22,26 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # reset buttons
         self.actionReset.triggered.connect(self.reset)
+
+        #special Buttons
+        self.special_buttons = SpecialButtons(self.input_edit)
+        self.x_button.clicked.connect(self.special_buttons.x_button_clicked)
+        self.y_button.clicked.connect(self.special_buttons.y_button_clicked)
+        self.a_2_button.clicked.connect(self.special_buttons.a_squared_button_clicked)
+        self.a_b_button.clicked.connect(self.special_buttons.a_power_b_button_clicked)
+        self.open_parenthesis_button.clicked.connect(self.special_buttons.open_parenthesis_button_clicked)
+        self.close_parenthesis_button.clicked.connect(self.special_buttons.close_parenthesis_button_clicked)
+        self.less_button.clicked.connect(self.special_buttons.less_button_clicked)
+        self.great_button.clicked.connect(self.special_buttons.greater_button_clicked)
+        self.less_equal_button.clicked.connect(self.special_buttons.less_equal_button_clicked)
+        self.great_equal_button.clicked.connect(self.special_buttons.greater_equal_button_clicked)
+        self.fact_button.clicked.connect(self.special_buttons.factorial_button_clicked)
+        self.x_fact_button.clicked.connect(self.special_buttons.x_fact_button_clicked)
+        self.apos_button.clicked.connect(self.special_buttons.apostrophe_button_clicked)
+        self.percent_button.clicked.connect(self.special_buttons.percent_button_clicked)
+        self.sqrt_button.clicked.connect(self.special_buttons.sqrt_button_clicked)
+        self.pi_button.clicked.connect(self.special_buttons.pi_button_clicked)
+
 
         # Number buttons
         self.number_buttons = NumberButtons(self.input_edit)
