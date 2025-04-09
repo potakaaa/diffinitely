@@ -25,10 +25,13 @@ class CalcButtonHandler:
         self.ui.minus_button.clicked.connect(lambda: self.operator_buttons.subtract_button_clicked())
         self.ui.mul_button.clicked.connect(lambda: self.operator_buttons.multiply_button_clicked())
         self.ui.div_button.clicked.connect(lambda: self.operator_buttons.divide_button_clicked())
-        self.ui.equal_button.clicked.connect(lambda: self.operator_buttons.equals_button_clicked())
+        
+        
+
+        self.ui.equal_button.clicked.connect(lambda: self.operator_buttons.equals_button_clicked(self.ui.n_value_edit, self.ui.derivative_1st_edit, self.ui.derivative_2nd_edit, self.ui.nth_derivative_edit, self.ui.integral_edit))
         
         # Other buttons
-        self.ui.other_buttons = OtherButtons(self.ui.input_edit)
+        self.other_buttons = OtherButtons(self.ui.input_edit, self.ui.n_value_edit, self.ui.derivative_1st_edit, self.ui.derivative_2nd_edit, self.ui.nth_derivative_edit, self.ui.integral_edit)
 
         self.ui.del_button.clicked.connect(lambda: self.other_buttons.del_button_clicked())
         self.ui.clear_button.clicked.connect(lambda: self.other_buttons.clear_button_clicked())
