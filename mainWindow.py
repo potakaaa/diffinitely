@@ -3,8 +3,7 @@ from PySide6.QtWidgets import QMainWindow
 from PySide6.QtGui import QFont, QIcon, QIntValidator
 from ui.main_window import Ui_MainWindow
 from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
-from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler
-
+from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler, FileButtonsHandler
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -21,8 +20,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.n_value_edit.setValidator(QIntValidator(0, 1000))
         self.calc_button_handler = CalcButtonHandler(self)
 
-        self.view_buttons_handler = ViewButtonsHandler(self)  
-
+        # Menu Bar Buttons
+        self.view_buttons_handler = ViewButtonsHandler(self)
+        self.file_buttons_handler = FileButtonsHandler(self)
     
 
 
