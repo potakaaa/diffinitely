@@ -66,3 +66,5 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Reset the font size to the initial value."""
         self.current_font_size = self.initial_font_size
         self.update_ui_font_size() 
+
+        
