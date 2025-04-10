@@ -1,4 +1,4 @@
-from functions.calc_buttons.menu_buttons import ViewButtons
+from functions.menu_buttons.view_buttons import ViewButtons
 
 class ViewButtonsHandler:
     def __init__(self, ui):

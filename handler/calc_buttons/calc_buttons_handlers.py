@@ -1,4 +1,8 @@
-from functions.calc_buttons.calc_buttons import NumberButtons, OperatorButtons, OtherButtons, SpecialButtons
+from functions.calc_buttons.number_buttons import NumberButtons
+from functions.calc_buttons.operator_buttons import OperatorButtons
+from functions.calc_buttons.other_buttons import OtherButtons
+from functions.calc_buttons.special_buttons import SpecialButtons
+
 
 class CalcButtonHandler:
     def __init__(self, ui):
@@ -38,6 +42,7 @@ class CalcButtonHandler:
 
         # Special Buttons
         self.special_buttons = SpecialButtons(self.ui.input_edit)
+        
         self.ui.x_button.clicked.connect(self.special_buttons.x_button_clicked)
         self.ui.y_button.clicked.connect(self.special_buttons.y_button_clicked)
         self.ui.a_2_button.clicked.connect(self.special_buttons.a_squared_button_clicked)
