@@ -61,6 +61,8 @@ class Ui_MainWindow(object):
         self.actionReset.setIcon(icon6)
         self.actionTheme = QAction(MainWindow)
         self.actionTheme.setObjectName(u"actionTheme")
+        self.actionTheme.setCheckable(True)
+        self.actionTheme.setChecked(False)
         icon7 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.WeatherClear))
         self.actionTheme.setIcon(icon7)
         self.actionShow_Hide = QAction(MainWindow)
@@ -522,15 +524,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setSpacing(5)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(-1, -1, -1, 5)
-        self.label_6 = QLabel(self.bottom_widget)
-        self.label_6.setObjectName(u"label_6")
+        self.history_label = QLabel(self.bottom_widget)
+        self.history_label.setObjectName(u"history_label")
 
-        self.verticalLayout_9.addWidget(self.label_6)
+        self.verticalLayout_9.addWidget(self.history_label)
 
-        self.listWidget = QListWidget(self.bottom_widget)
-        self.listWidget.setObjectName(u"listWidget")
+        self.history_list = QListWidget(self.bottom_widget)
+        self.history_list.setObjectName(u"history_list")
 
-        self.verticalLayout_9.addWidget(self.listWidget)
+        self.verticalLayout_9.addWidget(self.history_list)
 
 
         self.horizontalLayout_3.addLayout(self.verticalLayout_9)
@@ -550,7 +552,7 @@ class Ui_MainWindow(object):
         self.menuFile.setMinimumSize(QSize(160, 0))
         self.menuView = QMenu(self.menuBar)
         self.menuView.setObjectName(u"menuView")
-        self.menuView.setGeometry(QRect(607, 287, 160, 181))
+        self.menuView.setGeometry(QRect(322, 153, 160, 181))
         self.menuView.setMinimumSize(QSize(160, 0))
         self.menuEdit = QMenu(self.menuBar)
         self.menuEdit.setObjectName(u"menuEdit")
@@ -646,7 +648,7 @@ class Ui_MainWindow(object):
         self.del_button.setText(QCoreApplication.translate("MainWindow", u"delete", None))
         self.clear_button.setText(QCoreApplication.translate("MainWindow", u"clear", None))
         self.pushButton_36.setText(QCoreApplication.translate("MainWindow", u"trigo", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"History", None))
+        self.history_label.setText(QCoreApplication.translate("MainWindow", u"History", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuView.setTitle(QCoreApplication.translate("MainWindow", u"View", None))
         self.menuEdit.setTitle(QCoreApplication.translate("MainWindow", u"Edit", None))

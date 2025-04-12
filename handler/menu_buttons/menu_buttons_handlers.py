@@ -10,6 +10,7 @@ class ViewButtonsHandler:
         self.ui.actionZoom_In.triggered.connect(self.view_buttons.zoom_in)
         self.ui.actionZoom_Out.triggered.connect(self.view_buttons.zoom_out)
         self.ui.actionReset.triggered.connect(self.view_buttons.reset)
+        self.ui.actionTheme.triggered.connect(self.view_buttons.toggle_theme)
 
 class FileButtonsHandler:
     def __init__(self, ui):

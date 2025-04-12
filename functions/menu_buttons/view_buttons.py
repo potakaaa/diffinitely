@@ -1,4 +1,6 @@
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont, QPalette, QColor
+from PySide6.QtCore import Qt
+
 
 class ViewButtons:
     def __init__(self, ui):
@@ -47,3 +49,36 @@ class ViewButtons:
         ]
         for element in elements:
             element.setFont(QFont('Arial', self.current_font_size))
+
+    def toggle_theme(self):
+        isDarkTheme = self.ui.actionTheme.isChecked()
+        if isDarkTheme:
+            dark_palette = QPalette()
+            # Base colors
+            dark_palette.setColor(QPalette.Window, QColor(25, 25, 25))
+            dark_palette.setColor(QPalette.WindowText, Qt.white)
+            dark_palette.setColor(QPalette.Base, QColor(15, 15, 15))
+            dark_palette.setColor(QPalette.AlternateBase, QColor(30, 30, 30))
+            dark_palette.setColor(QPalette.ToolTipBase, QColor(30, 30, 30))
+            dark_palette.setColor(QPalette.ToolTipText, Qt.white)
+
+            # Text and buttons
+            dark_palette.setColor(QPalette.Text, Qt.white)
+            dark_palette.setColor(QPalette.Button, QColor(35, 35, 35))
+            dark_palette.setColor(QPalette.ButtonText, Qt.white)
+            dark_palette.setColor(QPalette.BrightText, Qt.red)
+
+            # Highlights
+            dark_palette.setColor(QPalette.Highlight, QColor(42, 130, 218))  # Blue-ish selection
+            dark_palette.setColor(QPalette.HighlightedText, Qt.white)
+
+            # Links
+            dark_palette.setColor(QPalette.Link, QColor(0, 122, 204))
+            self.ui.setPalette(dark_palette)
+            self.ui.actionTheme.setText("Light Mode")
+            print("Dark mode")
+        else:
+            self.ui.setPalette(QPalette())
+            self.ui.actionTheme.setText("Dark Mode")
+            print("Light mode")
+        

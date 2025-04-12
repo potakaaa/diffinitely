@@ -1,6 +1,6 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
-from PySide6.QtGui import QFont, QIcon, QIntValidator
+from PySide6.QtGui import QFont, QIcon, QIntValidator, QPalette
 from ui.main_window import Ui_MainWindow
 from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
 from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler, FileButtonsHandler
@@ -10,6 +10,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.setupUi(self)
         self.setWindowTitle("Diffinitely")
+
+        self.setPalette(QPalette())
 
         # Initial font setup
         self.initial_font_size = 10  # default font size

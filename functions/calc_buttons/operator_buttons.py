@@ -1,4 +1,5 @@
 from utils.safe_input_validator import safe_input_validator
+from utils.result_markup import result_markup
 import sympy as sp
 from PySide6.QtWidgets import QMessageBox
 
@@ -29,10 +30,10 @@ class OperatorButtons:
             nth_derivative = sp.diff(safe_input, self.x, n_value)
             integral_result = sp.integrate(safe_input, self.x)
 
-            deriv_1.setText(str(first_derivative))
-            deriv_2.setText(str(second_derivative))
-            n_deriv.setText(str(nth_derivative))
-            integral.setText(str(integral_result))
+            deriv_1.setText(result_markup(str(first_derivative)))
+            deriv_2.setText(result_markup(str(second_derivative)))
+            n_deriv.setText(result_markup(str(nth_derivative)))
+            integral.setText(result_markup(str(integral_result)))
         
         except Exception as e:
             QMessageBox.critical(None, "Input Error", "Error evaluating operation. Please fix your input!")
