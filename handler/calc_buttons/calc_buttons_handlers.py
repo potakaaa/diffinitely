@@ -35,10 +35,11 @@ class CalcButtonHandler:
         self.ui.equal_button.clicked.connect(lambda: self.operator_buttons.equals_button_clicked(self.ui.n_value_edit, self.ui.derivative_1st_edit, self.ui.derivative_2nd_edit, self.ui.nth_derivative_edit, self.ui.integral_edit))
         
         # Other buttons
-        self.other_buttons = OtherButtons(self.ui.input_edit, self.ui.n_value_edit, self.ui.derivative_1st_edit, self.ui.derivative_2nd_edit, self.ui.nth_derivative_edit, self.ui.integral_edit)
+        self.other_buttons = OtherButtons(self.ui.input_edit, self.ui.n_value_edit, self.ui.derivative_1st_edit, self.ui.derivative_2nd_edit, self.ui.nth_derivative_edit, self.ui.integral_edit, self.ui)
 
         self.ui.del_button.clicked.connect(lambda: self.other_buttons.del_button_clicked())
         self.ui.clear_button.clicked.connect(lambda: self.other_buttons.clear_button_clicked())
+        self.ui.more_button.clicked.connect(lambda: self.other_buttons.more_button_clicked())
 
         # Special Buttons
         self.special_buttons = SpecialButtons(self.ui.input_edit)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'trigo_widget.ui'
+## Form generated from reading UI file 'more_widget.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.0
 ##
@@ -23,8 +23,8 @@ class Ui_MoreFunctions(object):
         if not MoreFunctions.objectName():
             MoreFunctions.setObjectName(u"MoreFunctions")
         MoreFunctions.resize(257, 220)
-        MoreFunctions.setMinimumSize(QSize(257, 116))
-        MoreFunctions.setMaximumSize(QSize(257, 300))
+        MoreFunctions.setMinimumSize(QSize(257, 220))
+        MoreFunctions.setMaximumSize(QSize(259, 220))
         font = QFont()
         font.setFamilies([u"Poppins"])
         MoreFunctions.setFont(font)
