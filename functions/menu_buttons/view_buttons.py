@@ -2,29 +2,73 @@ from PySide6.QtGui import QFont, QPalette, QColor
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication
 
-
-class ViewButtons:
+    #darkmode/light mode
+class ThemeManager:
     def __init__(self, ui):
         self.ui = ui
-
-        self.initial_font_size = 10  # default font size
-        self.zoom_factor = 5  # zoom rate
-        self.max_font_size = 20  # maximum font size
-        self.min_font_size = 5   # minimum font size 
-        self.current_font_size = self.initial_font_size
-        self.set_default_theme()
 
     def set_default_theme(self):
         app_palette = QApplication.palette()
         bg_color = app_palette.color(QPalette.Window)
         brightness = (bg_color.red() + bg_color.green() + bg_color.blue()) / 3
-
         if brightness < 128:
             self.ui.actionTheme.setChecked(True)
         else:
             self.ui.actionTheme.setChecked(False)
-
         self.toggle_theme()
+
+    def toggle_theme(self):
+        isDarkTheme = self.ui.actionTheme.isChecked()
+        palette = QPalette()
+        if isDarkTheme:
+            self.set_dark_theme(palette)
+        else:
+            self.set_light_theme(palette)
+        self.ui.setPalette(palette)
+
+    def set_dark_theme(self, palette):
+        palette.setColor(QPalette.Window, QColor(25, 25, 25))
+        palette.setColor(QPalette.WindowText, Qt.white)
+        palette.setColor(QPalette.Base, QColor(15, 15, 15))
+        palette.setColor(QPalette.AlternateBase, QColor(30, 30, 30))
+        palette.setColor(QPalette.ToolTipBase, QColor(30, 30, 30))
+        palette.setColor(QPalette.ToolTipText, Qt.white)
+        palette.setColor(QPalette.Text, Qt.white)
+        palette.setColor(QPalette.Button, QColor(35, 35, 35))
+        palette.setColor(QPalette.ButtonText, Qt.white)
+        palette.setColor(QPalette.BrightText, Qt.red)
+        palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
+        palette.setColor(QPalette.HighlightedText, Qt.white)
+        palette.setColor(QPalette.Link, QColor(0, 122, 204))
+        self.ui.actionTheme.setText("Light Mode")
+        print("Dark mode")
+
+    def set_light_theme(self, palette):
+        palette.setColor(QPalette.Window, QColor(245, 245, 245))
+        palette.setColor(QPalette.WindowText, Qt.black)
+        palette.setColor(QPalette.Base, Qt.white)
+        palette.setColor(QPalette.AlternateBase, QColor(233, 233, 233))
+        palette.setColor(QPalette.ToolTipBase, Qt.white)
+        palette.setColor(QPalette.ToolTipText, Qt.black)
+        palette.setColor(QPalette.Text, Qt.black)
+        palette.setColor(QPalette.Button, QColor(240, 240, 240))
+        palette.setColor(QPalette.ButtonText, Qt.black)
+        palette.setColor(QPalette.BrightText, Qt.red)
+        palette.setColor(QPalette.Highlight, QColor(0, 120, 215))  # Blue
+        palette.setColor(QPalette.HighlightedText, Qt.white)
+        palette.setColor(QPalette.Link, QColor(0, 102, 204))
+        self.ui.actionTheme.setText("Dark Mode")
+        print("Light mode")
+
+# font changes or zoom in/out
+class FontManager:
+    def __init__(self, ui):
+        self.ui = ui
+        self.initial_font_size = 10
+        self.zoom_factor = 5
+        self.max_font_size = 20
+        self.min_font_size = 5
+        self.current_font_size = self.initial_font_size
 
     def zoom_in(self):
         if self.current_font_size + self.zoom_factor <= self.max_font_size:
@@ -62,46 +106,20 @@ class ViewButtons:
         for element in elements:
             element.setFont(QFont('Arial', self.current_font_size))
 
-    def toggle_theme(self):
-        isDarkTheme = self.ui.actionTheme.isChecked()
-        palette = QPalette()
+class ViewButtons:
+    def __init__(self, ui):
+        self.ui = ui
+        self.font_manager = FontManager(ui)
+        self.theme_manager = ThemeManager(ui)
 
-        if isDarkTheme:
-            # Dark Theme
-            palette.setColor(QPalette.Window, QColor(25, 25, 25))
-            palette.setColor(QPalette.WindowText, Qt.white)
-            palette.setColor(QPalette.Base, QColor(15, 15, 15))
-            palette.setColor(QPalette.AlternateBase, QColor(30, 30, 30))
-            palette.setColor(QPalette.ToolTipBase, QColor(30, 30, 30))
-            palette.setColor(QPalette.ToolTipText, Qt.white)
-            palette.setColor(QPalette.Text, Qt.white)
-            palette.setColor(QPalette.Button, QColor(35, 35, 35))
-            palette.setColor(QPalette.ButtonText, Qt.white)
-            palette.setColor(QPalette.BrightText, Qt.red)
-            palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
-            palette.setColor(QPalette.HighlightedText, Qt.white)
-            palette.setColor(QPalette.Link, QColor(0, 122, 204))
+        #default theme
+        self.theme_manager.set_default_theme()
 
-            self.ui.actionTheme.setText("Light Mode")
-            print("Dark mode")
+    def zoom_in(self):
+        self.font_manager.zoom_in()
 
-        else:
-            # Light Theme
-            palette.setColor(QPalette.Window, QColor(245, 245, 245))
-            palette.setColor(QPalette.WindowText, Qt.black)
-            palette.setColor(QPalette.Base, Qt.white)
-            palette.setColor(QPalette.AlternateBase, QColor(233, 233, 233))
-            palette.setColor(QPalette.ToolTipBase, Qt.white)
-            palette.setColor(QPalette.ToolTipText, Qt.black)
-            palette.setColor(QPalette.Text, Qt.black)
-            palette.setColor(QPalette.Button, QColor(240, 240, 240))
-            palette.setColor(QPalette.ButtonText, Qt.black)
-            palette.setColor(QPalette.BrightText, Qt.red)
-            palette.setColor(QPalette.Highlight, QColor(0, 120, 215))  # Blue
-            palette.setColor(QPalette.HighlightedText, Qt.white)
-            palette.setColor(QPalette.Link, QColor(0, 102, 204))
+    def zoom_out(self):
+        self.font_manager.zoom_out()
 
-            self.ui.actionTheme.setText("Dark Mode")
-            print("Light mode")
-
-        self.ui.setPalette(palette)
+    def reset(self):
+        self.font_manager.reset()
