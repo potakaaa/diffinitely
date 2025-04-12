@@ -977,6 +977,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="pushButton_36">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -984,7 +987,7 @@
               </size>
              </property>
              <property name="text">
-              <string>trigo</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -1044,10 +1047,10 @@
    <widget class="QMenu" name="menuView">
     <property name="geometry">
      <rect>
-      <x>322</x>
-      <y>153</y>
+      <x>358</x>
+      <y>151</y>
       <width>160</width>
-      <height>181</height>
+      <height>150</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -1063,7 +1066,6 @@
     <addaction name="actionZoom_Out"/>
     <addaction name="actionReset"/>
     <addaction name="actionTheme"/>
-    <addaction name="actionShow_Hide"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="minimumSize">
@@ -1082,10 +1084,10 @@
    <widget class="QMenu" name="menuAbout">
     <property name="geometry">
      <rect>
-      <x>724</x>
-      <y>287</y>
+      <x>475</x>
+      <y>151</y>
       <width>160</width>
-      <height>81</height>
+      <height>78</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -1175,7 +1177,7 @@
     <string>Dark Mode</string>
    </property>
   </action>
-  <action name="actionShow_Hide">
+  <action name="action">
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::WindowNew"/>
    </property>

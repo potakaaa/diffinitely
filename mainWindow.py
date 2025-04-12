@@ -1,9 +1,10 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMainWindow
-from PySide6.QtGui import QFont, QIcon, QIntValidator, QPalette
+from PySide6.QtGui import QIntValidator, QPalette
 from ui.main_window import Ui_MainWindow
 from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
 from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler, FileButtonsHandler
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
