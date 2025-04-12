@@ -18,4 +18,7 @@ class FileButtonsHandler:
         self.file_buttons = FileButtons(self.ui)  # Pass the UI object here
 
         # Connecting actions from the UI to the corresponding functions
+        self.ui.actionNew.triggered.connect(self.file_buttons.new_file)
+        self.ui.actionOpen.triggered.connect(self.file_buttons.open_file)
+        self.ui.actionSave.triggered.connect(self.file_buttons.save_file)
         self.ui.actionExit.triggered.connect(self.file_buttons.exit_app)
