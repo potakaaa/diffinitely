@@ -1,5 +1,6 @@
 from PySide6.QtGui import QFont, QPalette, QColor
 from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication
 
 
 class ViewButtons:
@@ -11,9 +12,21 @@ class ViewButtons:
         self.max_font_size = 20  # maximum font size
         self.min_font_size = 5   # minimum font size 
         self.current_font_size = self.initial_font_size
+        self.set_default_theme()
+
+    def set_default_theme(self):
+        app_palette = QApplication.palette()
+        bg_color = app_palette.color(QPalette.Window)
+        brightness = (bg_color.red() + bg_color.green() + bg_color.blue()) / 3
+
+        if brightness < 128:
+            self.ui.actionTheme.setChecked(True)
+        else:
+            self.ui.actionTheme.setChecked(False)
+
+        self.toggle_theme()
 
     def zoom_in(self):
-        # check max font size
         if self.current_font_size + self.zoom_factor <= self.max_font_size:
             self.current_font_size += self.zoom_factor
         else:
@@ -21,7 +34,6 @@ class ViewButtons:
         self.update_ui_font_size()
 
     def zoom_out(self):
-        # check min font size
         if self.current_font_size - self.zoom_factor >= self.min_font_size:
             self.current_font_size -= self.zoom_factor
         else:
@@ -52,33 +64,44 @@ class ViewButtons:
 
     def toggle_theme(self):
         isDarkTheme = self.ui.actionTheme.isChecked()
+        palette = QPalette()
+
         if isDarkTheme:
-            dark_palette = QPalette()
-            # Base colors
-            dark_palette.setColor(QPalette.Window, QColor(25, 25, 25))
-            dark_palette.setColor(QPalette.WindowText, Qt.white)
-            dark_palette.setColor(QPalette.Base, QColor(15, 15, 15))
-            dark_palette.setColor(QPalette.AlternateBase, QColor(30, 30, 30))
-            dark_palette.setColor(QPalette.ToolTipBase, QColor(30, 30, 30))
-            dark_palette.setColor(QPalette.ToolTipText, Qt.white)
+            # Dark Theme
+            palette.setColor(QPalette.Window, QColor(25, 25, 25))
+            palette.setColor(QPalette.WindowText, Qt.white)
+            palette.setColor(QPalette.Base, QColor(15, 15, 15))
+            palette.setColor(QPalette.AlternateBase, QColor(30, 30, 30))
+            palette.setColor(QPalette.ToolTipBase, QColor(30, 30, 30))
+            palette.setColor(QPalette.ToolTipText, Qt.white)
+            palette.setColor(QPalette.Text, Qt.white)
+            palette.setColor(QPalette.Button, QColor(35, 35, 35))
+            palette.setColor(QPalette.ButtonText, Qt.white)
+            palette.setColor(QPalette.BrightText, Qt.red)
+            palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
+            palette.setColor(QPalette.HighlightedText, Qt.white)
+            palette.setColor(QPalette.Link, QColor(0, 122, 204))
 
-            # Text and buttons
-            dark_palette.setColor(QPalette.Text, Qt.white)
-            dark_palette.setColor(QPalette.Button, QColor(35, 35, 35))
-            dark_palette.setColor(QPalette.ButtonText, Qt.white)
-            dark_palette.setColor(QPalette.BrightText, Qt.red)
-
-            # Highlights
-            dark_palette.setColor(QPalette.Highlight, QColor(42, 130, 218))  # Blue-ish selection
-            dark_palette.setColor(QPalette.HighlightedText, Qt.white)
-
-            # Links
-            dark_palette.setColor(QPalette.Link, QColor(0, 122, 204))
-            self.ui.setPalette(dark_palette)
             self.ui.actionTheme.setText("Light Mode")
             print("Dark mode")
+
         else:
-            self.ui.setPalette(QPalette())
+            # Light Theme
+            palette.setColor(QPalette.Window, QColor(245, 245, 245))
+            palette.setColor(QPalette.WindowText, Qt.black)
+            palette.setColor(QPalette.Base, Qt.white)
+            palette.setColor(QPalette.AlternateBase, QColor(233, 233, 233))
+            palette.setColor(QPalette.ToolTipBase, Qt.white)
+            palette.setColor(QPalette.ToolTipText, Qt.black)
+            palette.setColor(QPalette.Text, Qt.black)
+            palette.setColor(QPalette.Button, QColor(240, 240, 240))
+            palette.setColor(QPalette.ButtonText, Qt.black)
+            palette.setColor(QPalette.BrightText, Qt.red)
+            palette.setColor(QPalette.Highlight, QColor(0, 120, 215))  # Blue
+            palette.setColor(QPalette.HighlightedText, Qt.white)
+            palette.setColor(QPalette.Link, QColor(0, 102, 204))
+
             self.ui.actionTheme.setText("Dark Mode")
             print("Light mode")
-        
+
+        self.ui.setPalette(palette)
