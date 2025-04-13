@@ -1,7 +1,7 @@
 from widgets.more_buttons import MoreWidget
 
 class OtherButtons:
-    def __init__(self, lineEdit, n_value_edit, deriv_1, deriv_2, n_deriv, integral, ui):
+    def __init__(self, lineEdit, n_value_edit, deriv_1, deriv_2, n_deriv, integral,ui):
         self.lineEdit = lineEdit
         self.n_value_edit = n_value_edit
         self.deriv_1 = deriv_1

@@ -1,5 +1,6 @@
 from functions.menu_buttons.view_buttons import ViewButtons
 from functions.menu_buttons.file_buttons import FileButtons
+from functions.menu_buttons.edit_buttons import EditButtons
 
 class ViewButtonsHandler:
     def __init__(self, ui):
@@ -22,3 +23,13 @@ class FileButtonsHandler:
         self.ui.actionOpen.triggered.connect(self.file_buttons.open_file)
         self.ui.actionSave.triggered.connect(self.file_buttons.save_file)
         self.ui.actionExit.triggered.connect(self.file_buttons.exit_app)
+
+class EditButtonsHandler:
+    def __init__(self, ui):
+        self.ui = ui
+        self.edit_buttons = EditButtons(self.ui)  # Pass the UI object here
+
+        # Connecting actions from the UI to the corresponding functions
+        self.ui.actionUndo.triggered.connect(self.edit_buttons.undo)
+        self.ui.actionRedo.triggered.connect(self.edit_buttons.redo)
+        self.ui.actionClear.triggered.connect(self.edit_buttons.clear)
