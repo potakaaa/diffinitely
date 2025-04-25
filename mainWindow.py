@@ -4,6 +4,7 @@ from PySide6.QtGui import QIntValidator, QPalette
 from ui.main_window import Ui_MainWindow
 from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
 from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler, FileButtonsHandler, EditButtonsHandler
+from graphs.graph_manager import GraphManager
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -13,6 +14,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Diffinitely")
 
         self.setPalette(QPalette())
+
+        self.graph_manager = GraphManager(self)
 
         # Initial font setup
         self.initial_font_size = 10  # default font size
