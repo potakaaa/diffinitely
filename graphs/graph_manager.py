@@ -5,11 +5,9 @@ class GraphManager:
     def __init__(self, parent_window):
         self.parent = parent_window
 
-        # Create the main tab widget with fixed size
         self.graph_tabs = QTabWidget(self.parent)
         self.graph_tabs.setFixedSize(300, 300)
 
-        # Add to available layout only once
         layout_added = False
         if hasattr(self.parent, 'rightLayout'):
             self.parent.rightLayout.addWidget(self.graph_tabs)

@@ -7,8 +7,7 @@ class GraphTab(QWidget):
         super().__init__(parent)
         self.name = name
         self.layout = QVBoxLayout(self)
-        
-        # Create matplotlib figure and canvas
+
         self.figure = Figure(figsize=(5, 4), dpi=100)
         self.canvas = FigureCanvas(self.figure)
         self.layout.addWidget(self.canvas)
@@ -21,7 +20,6 @@ class GraphTab(QWidget):
         self.ax.relim()
         self.ax.autoscale_view()
 
-        # Optional: add padding
         x_min, x_max = self.ax.get_xlim()
         y_min, y_max = self.ax.get_ylim()
         x_pad = (x_max - x_min) * 0.1
@@ -31,7 +29,6 @@ class GraphTab(QWidget):
 
         self.ax.legend()
 
-        # Prevent clipping of labels and ticks
         self.figure.tight_layout()
 
         self.canvas.draw()
