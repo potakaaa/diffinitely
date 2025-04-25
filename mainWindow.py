@@ -18,7 +18,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.graph_manager = GraphManager(self)
 
         # Initial font setup
-        self.initial_font_size = 10  # default font size
+        self.initial_font_size = 11  # default font size
         self.zoom_factor = 5  # zoom rate
         self.current_font_size = self.initial_font_size
 

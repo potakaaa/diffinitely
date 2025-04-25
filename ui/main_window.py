@@ -31,6 +31,28 @@ class Ui_MainWindow(object):
         font = QFont()
         font.setFamilies([u"Poppins"])
         MainWindow.setFont(font)
+        MainWindow.setStyleSheet(u"#mainWidget {\n"
+"	background-color: rgb(220, 220, 220);\n"
+"}\n"
+"\n"
+"#statusBar {\n"
+"	background-color: rgb(54, 69, 79);\n"
+"}\n"
+"\n"
+"#menuBar {\n"
+"	background-color: rgb(54, 69, 79);\n"
+"}\n"
+"\n"
+"#top_widget {\n"
+"	background-color: rgb(54, 69, 79);\n"
+"	border-radius: 0px;\n"
+"}\n"
+"\n"
+"#bottom_widget {\n"
+"	background-color: rgb(169, 178, 178);\n"
+"	border-radius: 0px;\n"
+"}\n"
+"")
         self.actionNew = QAction(MainWindow)
         self.actionNew.setObjectName(u"actionNew")
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentNew))
@@ -87,14 +109,22 @@ class Ui_MainWindow(object):
         self.actionGithub_Link.setIcon(icon12)
         self.mainWidget = QWidget(MainWindow)
         self.mainWidget.setObjectName(u"mainWidget")
-        self.mainWidget.setFont(font)
+        font1 = QFont()
+        font1.setFamilies([u"Poppins"])
+        font1.setPointSize(11)
+        self.mainWidget.setFont(font1)
+        self.mainWidget.setStyleSheet(u"")
         self.gridLayout = QGridLayout(self.mainWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.top_widget = QWidget(self.mainWidget)
         self.top_widget.setObjectName(u"top_widget")
+        self.top_widget.setFont(font1)
+        self.top_widget.setStyleSheet(u"QLineEdit {\n"
+"	background-color: rgb(78, 94, 104)\n"
+"}")
         self.horizontalLayout_2 = QHBoxLayout(self.top_widget)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout = QHBoxLayout()
@@ -102,6 +132,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.left_widget = QWidget(self.top_widget)
         self.left_widget.setObjectName(u"left_widget")
+        self.left_widget.setFont(font1)
         self.verticalLayout_7 = QVBoxLayout(self.left_widget)
         self.verticalLayout_7.setSpacing(20)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
@@ -113,6 +144,7 @@ class Ui_MainWindow(object):
         self.input_label = QLabel(self.left_widget)
         self.input_label.setObjectName(u"input_label")
         self.input_label.setMaximumSize(QSize(16777215, 20))
+        self.input_label.setFont(font1)
 
         self.verticalLayout_12.addWidget(self.input_label, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -124,6 +156,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.input_edit.sizePolicy().hasHeightForWidth())
         self.input_edit.setSizePolicy(sizePolicy)
         self.input_edit.setMinimumSize(QSize(0, 35))
+        self.input_edit.setFont(font1)
 
         self.verticalLayout_12.addWidget(self.input_edit)
 
@@ -135,6 +168,7 @@ class Ui_MainWindow(object):
         self.n_value_label = QLabel(self.left_widget)
         self.n_value_label.setObjectName(u"n_value_label")
         self.n_value_label.setMaximumSize(QSize(16777215, 20))
+        self.n_value_label.setFont(font1)
 
         self.verticalLayout_13.addWidget(self.n_value_label, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -143,6 +177,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.n_value_edit.sizePolicy().hasHeightForWidth())
         self.n_value_edit.setSizePolicy(sizePolicy)
         self.n_value_edit.setMinimumSize(QSize(0, 35))
+        self.n_value_edit.setFont(font1)
 
         self.verticalLayout_13.addWidget(self.n_value_edit)
 
@@ -154,9 +189,11 @@ class Ui_MainWindow(object):
 
         self.graph_widget = QWidget(self.left_widget)
         self.graph_widget.setObjectName(u"graph_widget")
+        self.graph_widget.setFont(font1)
         self.label = QLabel(self.graph_widget)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(0, 0, 37, 17))
+        self.label.setFont(font1)
 
         self.verticalLayout_7.addWidget(self.graph_widget)
 
@@ -165,15 +202,17 @@ class Ui_MainWindow(object):
 
         self.right_widget = QWidget(self.top_widget)
         self.right_widget.setObjectName(u"right_widget")
+        self.right_widget.setFont(font1)
         self.verticalLayout_6 = QVBoxLayout(self.right_widget)
         self.verticalLayout_6.setSpacing(6)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 6)
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.derivative_1st_label = QLabel(self.right_widget)
         self.derivative_1st_label.setObjectName(u"derivative_1st_label")
         self.derivative_1st_label.setMaximumSize(QSize(432, 20))
+        self.derivative_1st_label.setFont(font1)
 
         self.verticalLayout_5.addWidget(self.derivative_1st_label, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -182,6 +221,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.derivative_1st_edit.sizePolicy().hasHeightForWidth())
         self.derivative_1st_edit.setSizePolicy(sizePolicy)
         self.derivative_1st_edit.setMinimumSize(QSize(0, 35))
+        self.derivative_1st_edit.setFont(font1)
 
         self.verticalLayout_5.addWidget(self.derivative_1st_edit)
 
@@ -193,6 +233,7 @@ class Ui_MainWindow(object):
         self.derivative_2nd_label = QLabel(self.right_widget)
         self.derivative_2nd_label.setObjectName(u"derivative_2nd_label")
         self.derivative_2nd_label.setMaximumSize(QSize(16777215, 20))
+        self.derivative_2nd_label.setFont(font1)
 
         self.verticalLayout_4.addWidget(self.derivative_2nd_label, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -201,6 +242,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.derivative_2nd_edit.sizePolicy().hasHeightForWidth())
         self.derivative_2nd_edit.setSizePolicy(sizePolicy)
         self.derivative_2nd_edit.setMinimumSize(QSize(0, 35))
+        self.derivative_2nd_edit.setFont(font1)
 
         self.verticalLayout_4.addWidget(self.derivative_2nd_edit)
 
@@ -212,6 +254,7 @@ class Ui_MainWindow(object):
         self.nth_derivative_label = QLabel(self.right_widget)
         self.nth_derivative_label.setObjectName(u"nth_derivative_label")
         self.nth_derivative_label.setMaximumSize(QSize(16777215, 20))
+        self.nth_derivative_label.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.nth_derivative_label, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -220,6 +263,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.nth_derivative_edit.sizePolicy().hasHeightForWidth())
         self.nth_derivative_edit.setSizePolicy(sizePolicy)
         self.nth_derivative_edit.setMinimumSize(QSize(0, 35))
+        self.nth_derivative_edit.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.nth_derivative_edit)
 
@@ -231,6 +275,7 @@ class Ui_MainWindow(object):
         self.integral_label = QLabel(self.right_widget)
         self.integral_label.setObjectName(u"integral_label")
         self.integral_label.setMaximumSize(QSize(16777215, 20))
+        self.integral_label.setFont(font1)
 
         self.verticalLayout_10.addWidget(self.integral_label, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -239,6 +284,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.integral_edit.sizePolicy().hasHeightForWidth())
         self.integral_edit.setSizePolicy(sizePolicy)
         self.integral_edit.setMinimumSize(QSize(0, 35))
+        self.integral_edit.setFont(font1)
 
         self.verticalLayout_10.addWidget(self.integral_edit)
 
@@ -257,6 +303,33 @@ class Ui_MainWindow(object):
         self.bottom_widget = QWidget(self.mainWidget)
         self.bottom_widget.setObjectName(u"bottom_widget")
         self.bottom_widget.setMaximumSize(QSize(16777215, 250))
+        font2 = QFont()
+        font2.setFamilies([u"Poppins"])
+        font2.setPointSize(14)
+        font2.setBold(False)
+        self.bottom_widget.setFont(font2)
+        self.bottom_widget.setStyleSheet(u"QPushButton {\n"
+"	font-size: 18px;\n"
+"	font-weight: 500;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"	font-size: 13px;\n"
+"	font-weight: 500;\n"
+"}\n"
+"\n"
+"#add_button, #minus_button, #mul_button, #div_button, #equal_button {\n"
+"	background-color: rgb(0, 128, 128);\n"
+"}\n"
+"\n"
+"#more_button, #del_button, #clear_button, #empty_button {\n"
+"	background-color: rgb(208, 133, 29)\n"
+"}\n"
+"\n"
+"#history_label {\n"
+"	color: rgb(0, 0, 0);\n"
+"}\n"
+"")
         self.horizontalLayout_3 = QHBoxLayout(self.bottom_widget)
         self.horizontalLayout_3.setSpacing(15)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -267,6 +340,10 @@ class Ui_MainWindow(object):
         self.x_button.setObjectName(u"x_button")
         self.x_button.setMinimumSize(QSize(0, 40))
         self.x_button.setMaximumSize(QSize(16777215, 16777215))
+        font3 = QFont()
+        font3.setFamilies([u"Poppins"])
+        font3.setWeight(QFont.Medium)
+        self.x_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.x_button, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
@@ -274,6 +351,7 @@ class Ui_MainWindow(object):
         self.y_button.setObjectName(u"y_button")
         self.y_button.setMinimumSize(QSize(0, 40))
         self.y_button.setMaximumSize(QSize(16777215, 16777215))
+        self.y_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.y_button, 0, 1, 1, 1)
 
@@ -281,6 +359,7 @@ class Ui_MainWindow(object):
         self.a_2_button.setObjectName(u"a_2_button")
         self.a_2_button.setMinimumSize(QSize(0, 40))
         self.a_2_button.setMaximumSize(QSize(16777215, 16777215))
+        self.a_2_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.a_2_button, 0, 2, 1, 1)
 
@@ -288,6 +367,7 @@ class Ui_MainWindow(object):
         self.a_b_button.setObjectName(u"a_b_button")
         self.a_b_button.setMinimumSize(QSize(0, 40))
         self.a_b_button.setMaximumSize(QSize(16777215, 16777215))
+        self.a_b_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.a_b_button, 0, 3, 1, 1)
 
@@ -295,6 +375,7 @@ class Ui_MainWindow(object):
         self.open_parenthesis_button.setObjectName(u"open_parenthesis_button")
         self.open_parenthesis_button.setMinimumSize(QSize(0, 40))
         self.open_parenthesis_button.setMaximumSize(QSize(16777215, 16777215))
+        self.open_parenthesis_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.open_parenthesis_button, 1, 0, 1, 1)
 
@@ -302,6 +383,7 @@ class Ui_MainWindow(object):
         self.close_parenthesis_button.setObjectName(u"close_parenthesis_button")
         self.close_parenthesis_button.setMinimumSize(QSize(0, 40))
         self.close_parenthesis_button.setMaximumSize(QSize(16777215, 16777215))
+        self.close_parenthesis_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.close_parenthesis_button, 1, 1, 1, 1)
 
@@ -309,6 +391,7 @@ class Ui_MainWindow(object):
         self.less_button.setObjectName(u"less_button")
         self.less_button.setMinimumSize(QSize(0, 40))
         self.less_button.setMaximumSize(QSize(16777215, 16777215))
+        self.less_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.less_button, 1, 2, 1, 1)
 
@@ -316,6 +399,7 @@ class Ui_MainWindow(object):
         self.great_button.setObjectName(u"great_button")
         self.great_button.setMinimumSize(QSize(0, 40))
         self.great_button.setMaximumSize(QSize(16777215, 16777215))
+        self.great_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.great_button, 1, 3, 1, 1)
 
@@ -323,6 +407,7 @@ class Ui_MainWindow(object):
         self.fact_button.setObjectName(u"fact_button")
         self.fact_button.setMinimumSize(QSize(0, 40))
         self.fact_button.setMaximumSize(QSize(16777215, 16777215))
+        self.fact_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.fact_button, 2, 0, 1, 1)
 
@@ -330,6 +415,7 @@ class Ui_MainWindow(object):
         self.apos_button.setObjectName(u"apos_button")
         self.apos_button.setMinimumSize(QSize(0, 40))
         self.apos_button.setMaximumSize(QSize(16777215, 16777215))
+        self.apos_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.apos_button, 2, 1, 1, 1)
 
@@ -337,6 +423,7 @@ class Ui_MainWindow(object):
         self.less_equal_button.setObjectName(u"less_equal_button")
         self.less_equal_button.setMinimumSize(QSize(0, 40))
         self.less_equal_button.setMaximumSize(QSize(16777215, 16777215))
+        self.less_equal_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.less_equal_button, 2, 2, 1, 1)
 
@@ -344,6 +431,7 @@ class Ui_MainWindow(object):
         self.great_equal_button.setObjectName(u"great_equal_button")
         self.great_equal_button.setMinimumSize(QSize(0, 40))
         self.great_equal_button.setMaximumSize(QSize(16777215, 16777215))
+        self.great_equal_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.great_equal_button, 2, 3, 1, 1)
 
@@ -351,6 +439,7 @@ class Ui_MainWindow(object):
         self.x_fact_button.setObjectName(u"x_fact_button")
         self.x_fact_button.setMinimumSize(QSize(0, 40))
         self.x_fact_button.setMaximumSize(QSize(16777215, 16777215))
+        self.x_fact_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.x_fact_button, 3, 0, 1, 1)
 
@@ -358,6 +447,7 @@ class Ui_MainWindow(object):
         self.percent_button.setObjectName(u"percent_button")
         self.percent_button.setMinimumSize(QSize(0, 40))
         self.percent_button.setMaximumSize(QSize(16777215, 16777215))
+        self.percent_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.percent_button, 3, 1, 1, 1)
 
@@ -365,6 +455,7 @@ class Ui_MainWindow(object):
         self.sqrt_button.setObjectName(u"sqrt_button")
         self.sqrt_button.setMinimumSize(QSize(0, 40))
         self.sqrt_button.setMaximumSize(QSize(16777215, 16777215))
+        self.sqrt_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.sqrt_button, 3, 2, 1, 1)
 
@@ -372,6 +463,7 @@ class Ui_MainWindow(object):
         self.pi_button.setObjectName(u"pi_button")
         self.pi_button.setMinimumSize(QSize(0, 40))
         self.pi_button.setMaximumSize(QSize(16777215, 16777215))
+        self.pi_button.setFont(font3)
 
         self.gridLayout_2.addWidget(self.pi_button, 3, 3, 1, 1)
 
@@ -386,6 +478,7 @@ class Ui_MainWindow(object):
         self.zero_button.setObjectName(u"zero_button")
         self.zero_button.setMinimumSize(QSize(0, 40))
         self.zero_button.setMaximumSize(QSize(16777215, 16777215))
+        self.zero_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.zero_button, 3, 0, 1, 1)
 
@@ -393,6 +486,7 @@ class Ui_MainWindow(object):
         self.nine_button.setObjectName(u"nine_button")
         self.nine_button.setMinimumSize(QSize(0, 40))
         self.nine_button.setMaximumSize(QSize(16777215, 16777215))
+        self.nine_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.nine_button, 0, 2, 1, 1)
 
@@ -400,6 +494,7 @@ class Ui_MainWindow(object):
         self.minus_button.setObjectName(u"minus_button")
         self.minus_button.setMinimumSize(QSize(0, 40))
         self.minus_button.setMaximumSize(QSize(16777215, 16777215))
+        self.minus_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.minus_button, 2, 3, 1, 1)
 
@@ -407,6 +502,7 @@ class Ui_MainWindow(object):
         self.seven_button.setObjectName(u"seven_button")
         self.seven_button.setMinimumSize(QSize(0, 40))
         self.seven_button.setMaximumSize(QSize(16777215, 16777215))
+        self.seven_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.seven_button, 0, 0, 1, 1)
 
@@ -414,6 +510,7 @@ class Ui_MainWindow(object):
         self.four_button.setObjectName(u"four_button")
         self.four_button.setMinimumSize(QSize(0, 40))
         self.four_button.setMaximumSize(QSize(16777215, 16777215))
+        self.four_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.four_button, 1, 0, 1, 1)
 
@@ -421,6 +518,7 @@ class Ui_MainWindow(object):
         self.one_button.setObjectName(u"one_button")
         self.one_button.setMinimumSize(QSize(0, 40))
         self.one_button.setMaximumSize(QSize(16777215, 16777215))
+        self.one_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.one_button, 2, 0, 1, 1)
 
@@ -428,6 +526,7 @@ class Ui_MainWindow(object):
         self.two_button.setObjectName(u"two_button")
         self.two_button.setMinimumSize(QSize(0, 40))
         self.two_button.setMaximumSize(QSize(16777215, 16777215))
+        self.two_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.two_button, 2, 1, 1, 1)
 
@@ -435,6 +534,7 @@ class Ui_MainWindow(object):
         self.div_button.setObjectName(u"div_button")
         self.div_button.setMinimumSize(QSize(0, 40))
         self.div_button.setMaximumSize(QSize(16777215, 16777215))
+        self.div_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.div_button, 0, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
@@ -442,6 +542,7 @@ class Ui_MainWindow(object):
         self.six_button.setObjectName(u"six_button")
         self.six_button.setMinimumSize(QSize(0, 40))
         self.six_button.setMaximumSize(QSize(16777215, 16777215))
+        self.six_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.six_button, 1, 2, 1, 1)
 
@@ -449,6 +550,7 @@ class Ui_MainWindow(object):
         self.five_button.setObjectName(u"five_button")
         self.five_button.setMinimumSize(QSize(0, 40))
         self.five_button.setMaximumSize(QSize(16777215, 16777215))
+        self.five_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.five_button, 1, 1, 1, 1)
 
@@ -456,6 +558,7 @@ class Ui_MainWindow(object):
         self.eight_button.setObjectName(u"eight_button")
         self.eight_button.setMinimumSize(QSize(0, 40))
         self.eight_button.setMaximumSize(QSize(16777215, 16777215))
+        self.eight_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.eight_button, 0, 1, 1, 1)
 
@@ -463,6 +566,7 @@ class Ui_MainWindow(object):
         self.mul_button.setObjectName(u"mul_button")
         self.mul_button.setMinimumSize(QSize(0, 40))
         self.mul_button.setMaximumSize(QSize(16777215, 16777215))
+        self.mul_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.mul_button, 1, 3, 1, 1)
 
@@ -470,6 +574,7 @@ class Ui_MainWindow(object):
         self.add_button.setObjectName(u"add_button")
         self.add_button.setMinimumSize(QSize(0, 40))
         self.add_button.setMaximumSize(QSize(16777215, 16777215))
+        self.add_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.add_button, 3, 3, 1, 1)
 
@@ -477,6 +582,7 @@ class Ui_MainWindow(object):
         self.three_button.setObjectName(u"three_button")
         self.three_button.setMinimumSize(QSize(0, 40))
         self.three_button.setMaximumSize(QSize(16777215, 16777215))
+        self.three_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.three_button, 2, 2, 1, 1)
 
@@ -484,6 +590,7 @@ class Ui_MainWindow(object):
         self.equal_button.setObjectName(u"equal_button")
         self.equal_button.setMinimumSize(QSize(0, 40))
         self.equal_button.setMaximumSize(QSize(16777215, 16777215))
+        self.equal_button.setFont(font3)
 
         self.gridLayout_3.addWidget(self.equal_button, 3, 1, 1, 2)
 
@@ -496,27 +603,31 @@ class Ui_MainWindow(object):
         self.more_button = QPushButton(self.bottom_widget)
         self.more_button.setObjectName(u"more_button")
         self.more_button.setMinimumSize(QSize(0, 40))
+        self.more_button.setFont(font3)
 
         self.verticalLayout_8.addWidget(self.more_button)
 
         self.del_button = QPushButton(self.bottom_widget)
         self.del_button.setObjectName(u"del_button")
         self.del_button.setMinimumSize(QSize(0, 40))
+        self.del_button.setFont(font3)
 
         self.verticalLayout_8.addWidget(self.del_button)
 
         self.clear_button = QPushButton(self.bottom_widget)
         self.clear_button.setObjectName(u"clear_button")
         self.clear_button.setMinimumSize(QSize(0, 40))
+        self.clear_button.setFont(font3)
 
         self.verticalLayout_8.addWidget(self.clear_button)
 
-        self.pushButton_36 = QPushButton(self.bottom_widget)
-        self.pushButton_36.setObjectName(u"pushButton_36")
-        self.pushButton_36.setEnabled(False)
-        self.pushButton_36.setMinimumSize(QSize(0, 40))
+        self.empty_button = QPushButton(self.bottom_widget)
+        self.empty_button.setObjectName(u"empty_button")
+        self.empty_button.setEnabled(False)
+        self.empty_button.setMinimumSize(QSize(0, 40))
+        self.empty_button.setFont(font3)
 
-        self.verticalLayout_8.addWidget(self.pushButton_36)
+        self.verticalLayout_8.addWidget(self.empty_button)
 
 
         self.horizontalLayout_3.addLayout(self.verticalLayout_8)
@@ -527,11 +638,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setContentsMargins(-1, -1, -1, 5)
         self.history_label = QLabel(self.bottom_widget)
         self.history_label.setObjectName(u"history_label")
+        self.history_label.setFont(font3)
 
         self.verticalLayout_9.addWidget(self.history_label)
 
         self.history_list = QListWidget(self.bottom_widget)
         self.history_list.setObjectName(u"history_list")
+        font4 = QFont()
+        font4.setFamilies([u"Poppins"])
+        font4.setPointSize(11)
+        font4.setBold(False)
+        self.history_list.setFont(font4)
 
         self.verticalLayout_9.addWidget(self.history_list)
 
@@ -553,14 +670,14 @@ class Ui_MainWindow(object):
         self.menuFile.setMinimumSize(QSize(160, 0))
         self.menuView = QMenu(self.menuBar)
         self.menuView.setObjectName(u"menuView")
-        self.menuView.setGeometry(QRect(358, 151, 160, 150))
+        self.menuView.setGeometry(QRect(358, 151, 160, 156))
         self.menuView.setMinimumSize(QSize(160, 0))
         self.menuEdit = QMenu(self.menuBar)
         self.menuEdit.setObjectName(u"menuEdit")
         self.menuEdit.setMinimumSize(QSize(160, 0))
         self.menuAbout = QMenu(self.menuBar)
         self.menuAbout.setObjectName(u"menuAbout")
-        self.menuAbout.setGeometry(QRect(475, 151, 160, 78))
+        self.menuAbout.setGeometry(QRect(671, 228, 160, 78))
         self.menuAbout.setMinimumSize(QSize(160, 0))
         MainWindow.setMenuBar(self.menuBar)
         self.statusBar = QStatusBar(MainWindow)
@@ -645,9 +762,9 @@ class Ui_MainWindow(object):
         self.three_button.setText(QCoreApplication.translate("MainWindow", u"3", None))
         self.equal_button.setText(QCoreApplication.translate("MainWindow", u"=", None))
         self.more_button.setText(QCoreApplication.translate("MainWindow", u"more", None))
-        self.del_button.setText(QCoreApplication.translate("MainWindow", u"delete", None))
+        self.del_button.setText(QCoreApplication.translate("MainWindow", u"del", None))
         self.clear_button.setText(QCoreApplication.translate("MainWindow", u"clear", None))
-        self.pushButton_36.setText("")
+        self.empty_button.setText("")
         self.history_label.setText(QCoreApplication.translate("MainWindow", u"History", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuView.setTitle(QCoreApplication.translate("MainWindow", u"View", None))

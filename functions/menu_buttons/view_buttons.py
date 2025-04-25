@@ -64,10 +64,10 @@ class ThemeManager:
 class FontManager:
     def __init__(self, ui):
         self.ui = ui
-        self.initial_font_size = 10
+        self.initial_font_size = 11
         self.zoom_factor = 5
         self.max_font_size = 20
-        self.min_font_size = 5
+        self.min_font_size = 9
         self.current_font_size = self.initial_font_size
 
     def zoom_in(self):
@@ -104,7 +104,7 @@ class FontManager:
             self.ui.clear_button, self.ui.pushButton_36, self.ui.label
         ]
         for element in elements:
-            element.setFont(QFont('Arial', self.current_font_size))
+            element.setFont(QFont('Poppins', self.current_font_size))
 
 class ViewButtons:
     def __init__(self, ui):
