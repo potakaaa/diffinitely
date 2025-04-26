@@ -22,7 +22,7 @@ class OtherButtons:
         self.n_value_edit.setText("")
 
     def more_button_clicked(self):
-        self.popup = MoreWidget()
+        self.popup = MoreWidget(self.lineEdit)
         self.popup.show()
 
 
