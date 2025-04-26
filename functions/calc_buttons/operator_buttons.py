@@ -3,6 +3,7 @@ from utils.result_markup import result_markup
 import sympy as sp
 from PySide6.QtWidgets import QMessageBox
 import re
+import numpy as np
 
 class OperatorButtons:
     def __init__(self, lineEdit):
@@ -85,34 +86,44 @@ class OperatorButtons:
 
 
     def evaluate_function(self, expr, x_values):
-        """Evaluate the function for the given x values"""
-        import numpy as np
-        
         if not expr or expr.strip() == "":
             return np.zeros_like(x_values)
 
-        # Preprocess expression: handle implicit multiplication like 7x or (x+1)(x-1)
-        expr = expr.replace('^', '**')  # Convert caret to Python power operator
-        
-        # Insert * between number and variable (e.g., 7x -> 7*x)
-        expr = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', expr)
-        # Insert * between variable and parenthesis (e.g., x(x+1) -> x*(x+1))
-        expr = re.sub(r'([a-zA-Z])\(', r'\1*(', expr)
-        # Insert * between closing parenthesis and variable or number (e.g., )(x) or )(2)
-        expr = re.sub(r'\)([a-zA-Z0-9])', r')*\1', expr)
+        expr = expr.replace('^', '**')
 
-        def f(x):
-            try:
-                import math
-                safe_globals = {"x": x, "sin": math.sin, "cos": math.cos, "tan": math.tan,
-                                "sqrt": math.sqrt, "pi": math.pi, "e": math.e,
-                                "abs": abs, "log": math.log, "log10": math.log10}
-                return eval(expr, {"_builtins_": {}}, safe_globals)
-            except Exception:
-                return float('nan')
-        
+        # Step 1: Protect function names by temporarily replacing them
+        functions = ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'sqrt', 'log', 'log10', 'exp']
+        func_placeholders = {}
+        for i, func in enumerate(functions):
+            placeholder = f"FUNC{i}"
+            expr = re.sub(rf'\b{func}\b', placeholder, expr)
+            func_placeholders[placeholder] = func
+
+        # Step 2: Insert multiplication signs safely
+        expr = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', expr)         # number followed by variable
+        expr = re.sub(r'([a-zA-Z])\(', r'\1*(', expr)             # variable followed by (
+
+        expr = re.sub(r'\)([a-zA-Z0-9])', r')*\1', expr)          # ) followed by variable or number
+
+        # Step 3: Restore the function names
+        for placeholder, func in func_placeholders.items():
+            expr = expr.replace(placeholder, func)
+
+        # Step 4: Safe evaluation
+        safe_globals = {
+            "x": x_values,
+            "sin": np.sin, "cos": np.cos, "tan": np.tan,
+            "sqrt": np.sqrt, "pi": np.pi, "e": np.e,
+            "abs": np.abs, "log": np.log10, "ln": np.log,
+            "exp": np.exp,
+            "sec": lambda x: 1 / np.cos(x),
+            "csc": lambda x: 1 / np.sin(x),
+            "cot": lambda x: 1 / np.tan(x)
+        }
+
         try:
-            return np.array([f(x) for x in x_values])
+            y = eval(expr, {"__builtins__": {}}, safe_globals)
+            return np.array(y)
         except Exception as e:
             print(f"Error evaluating function: {e}")
             return np.zeros_like(x_values)
