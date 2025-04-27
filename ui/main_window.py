@@ -25,8 +25,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(684, 680)
-        MainWindow.setMinimumSize(QSize(684, 680))
+        MainWindow.resize(684, 900)
+        MainWindow.setMinimumSize(QSize(684, 900))
         MainWindow.setMaximumSize(QSize(896, 900))
         font = QFont()
         font.setFamilies([u"Poppins"])
@@ -134,8 +134,9 @@ class Ui_MainWindow(object):
         self.left_widget.setObjectName(u"left_widget")
         self.left_widget.setFont(font1)
         self.verticalLayout_7 = QVBoxLayout(self.left_widget)
-        self.verticalLayout_7.setSpacing(20)
+        self.verticalLayout_7.setSpacing(6)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(-1, 5, -1, -1)
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, 0, -1)
@@ -156,6 +157,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.input_edit.sizePolicy().hasHeightForWidth())
         self.input_edit.setSizePolicy(sizePolicy)
         self.input_edit.setMinimumSize(QSize(0, 35))
+        self.input_edit.setMaximumSize(QSize(16777215, 44))
         self.input_edit.setFont(font1)
 
         self.verticalLayout_12.addWidget(self.input_edit)
@@ -177,6 +179,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.n_value_edit.sizePolicy().hasHeightForWidth())
         self.n_value_edit.setSizePolicy(sizePolicy)
         self.n_value_edit.setMinimumSize(QSize(0, 35))
+        self.n_value_edit.setMaximumSize(QSize(16777215, 44))
         self.n_value_edit.setFont(font1)
 
         self.verticalLayout_13.addWidget(self.n_value_edit)
@@ -190,38 +193,53 @@ class Ui_MainWindow(object):
         self.graph_widget = QWidget(self.left_widget)
         self.graph_widget.setObjectName(u"graph_widget")
         self.graph_widget.setFont(font1)
+        self.verticalLayout_11 = QVBoxLayout(self.graph_widget)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalLayout_11.setContentsMargins(0, 6, -1, -1)
         self.label = QLabel(self.graph_widget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(0, 0, 37, 17))
         self.label.setFont(font1)
 
-        self.verticalLayout_7.addWidget(self.graph_widget)
+        self.verticalLayout_11.addWidget(self.label)
+
+
+        self.verticalLayout_7.addWidget(self.graph_widget, 0, Qt.AlignmentFlag.AlignTop)
 
 
         self.horizontalLayout.addWidget(self.left_widget)
 
         self.right_widget = QWidget(self.top_widget)
         self.right_widget.setObjectName(u"right_widget")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.MinimumExpanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.right_widget.sizePolicy().hasHeightForWidth())
+        self.right_widget.setSizePolicy(sizePolicy1)
+        self.right_widget.setMinimumSize(QSize(0, 0))
+        self.right_widget.setMaximumSize(QSize(16777215, 600))
         self.right_widget.setFont(font1)
         self.verticalLayout_6 = QVBoxLayout(self.right_widget)
         self.verticalLayout_6.setSpacing(6)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 6)
+        self.verticalLayout_6.setContentsMargins(0, 0, 6, 140)
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setSizeConstraint(QLayout.SizeConstraint.SetFixedSize)
         self.derivative_1st_label = QLabel(self.right_widget)
         self.derivative_1st_label.setObjectName(u"derivative_1st_label")
         self.derivative_1st_label.setMaximumSize(QSize(432, 20))
         self.derivative_1st_label.setFont(font1)
 
-        self.verticalLayout_5.addWidget(self.derivative_1st_label, 0, Qt.AlignmentFlag.AlignBottom)
+        self.verticalLayout_5.addWidget(self.derivative_1st_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.derivative_1st_edit = QLineEdit(self.right_widget)
         self.derivative_1st_edit.setObjectName(u"derivative_1st_edit")
         sizePolicy.setHeightForWidth(self.derivative_1st_edit.sizePolicy().hasHeightForWidth())
         self.derivative_1st_edit.setSizePolicy(sizePolicy)
         self.derivative_1st_edit.setMinimumSize(QSize(0, 35))
+        self.derivative_1st_edit.setMaximumSize(QSize(16777215, 44))
         self.derivative_1st_edit.setFont(font1)
+        self.derivative_1st_edit.setReadOnly(True)
 
         self.verticalLayout_5.addWidget(self.derivative_1st_edit)
 
@@ -235,14 +253,16 @@ class Ui_MainWindow(object):
         self.derivative_2nd_label.setMaximumSize(QSize(16777215, 20))
         self.derivative_2nd_label.setFont(font1)
 
-        self.verticalLayout_4.addWidget(self.derivative_2nd_label, 0, Qt.AlignmentFlag.AlignBottom)
+        self.verticalLayout_4.addWidget(self.derivative_2nd_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.derivative_2nd_edit = QLineEdit(self.right_widget)
         self.derivative_2nd_edit.setObjectName(u"derivative_2nd_edit")
         sizePolicy.setHeightForWidth(self.derivative_2nd_edit.sizePolicy().hasHeightForWidth())
         self.derivative_2nd_edit.setSizePolicy(sizePolicy)
         self.derivative_2nd_edit.setMinimumSize(QSize(0, 35))
+        self.derivative_2nd_edit.setMaximumSize(QSize(16777215, 44))
         self.derivative_2nd_edit.setFont(font1)
+        self.derivative_2nd_edit.setReadOnly(True)
 
         self.verticalLayout_4.addWidget(self.derivative_2nd_edit)
 
@@ -256,14 +276,16 @@ class Ui_MainWindow(object):
         self.nth_derivative_label.setMaximumSize(QSize(16777215, 20))
         self.nth_derivative_label.setFont(font1)
 
-        self.verticalLayout_3.addWidget(self.nth_derivative_label, 0, Qt.AlignmentFlag.AlignBottom)
+        self.verticalLayout_3.addWidget(self.nth_derivative_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.nth_derivative_edit = QLineEdit(self.right_widget)
         self.nth_derivative_edit.setObjectName(u"nth_derivative_edit")
         sizePolicy.setHeightForWidth(self.nth_derivative_edit.sizePolicy().hasHeightForWidth())
         self.nth_derivative_edit.setSizePolicy(sizePolicy)
         self.nth_derivative_edit.setMinimumSize(QSize(0, 35))
+        self.nth_derivative_edit.setMaximumSize(QSize(16777215, 44))
         self.nth_derivative_edit.setFont(font1)
+        self.nth_derivative_edit.setReadOnly(True)
 
         self.verticalLayout_3.addWidget(self.nth_derivative_edit)
 
@@ -277,14 +299,16 @@ class Ui_MainWindow(object):
         self.integral_label.setMaximumSize(QSize(16777215, 20))
         self.integral_label.setFont(font1)
 
-        self.verticalLayout_10.addWidget(self.integral_label, 0, Qt.AlignmentFlag.AlignBottom)
+        self.verticalLayout_10.addWidget(self.integral_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.integral_edit = QLineEdit(self.right_widget)
         self.integral_edit.setObjectName(u"integral_edit")
         sizePolicy.setHeightForWidth(self.integral_edit.sizePolicy().hasHeightForWidth())
         self.integral_edit.setSizePolicy(sizePolicy)
         self.integral_edit.setMinimumSize(QSize(0, 35))
+        self.integral_edit.setMaximumSize(QSize(16777215, 44))
         self.integral_edit.setFont(font1)
+        self.integral_edit.setReadOnly(True)
 
         self.verticalLayout_10.addWidget(self.integral_edit)
 
@@ -670,7 +694,7 @@ class Ui_MainWindow(object):
         self.menuFile.setMinimumSize(QSize(160, 0))
         self.menuView = QMenu(self.menuBar)
         self.menuView.setObjectName(u"menuView")
-        self.menuView.setGeometry(QRect(358, 151, 160, 156))
+        self.menuView.setGeometry(QRect(358, 151, 160, 150))
         self.menuView.setMinimumSize(QSize(160, 0))
         self.menuEdit = QMenu(self.menuBar)
         self.menuEdit.setObjectName(u"menuEdit")

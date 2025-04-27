@@ -15,7 +15,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.setPalette(QPalette())
 
-        self.graph_manager = GraphManager(self)
+        self.graph_manager = GraphManager(self.graph_widget)
 
         # Initial font setup
         self.initial_font_size = 11  # default font size

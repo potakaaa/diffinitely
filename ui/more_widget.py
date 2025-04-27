@@ -28,6 +28,20 @@ class Ui_MoreFunctions(object):
         font = QFont()
         font.setFamilies([u"Poppins"])
         MoreFunctions.setFont(font)
+        MoreFunctions.setStyleSheet(u"#MoreFunctions {\n"
+"	background-color: rgb(169, 178, 178);\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"	font-size: 18px;\n"
+"	font-weight: 500;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"	font-size: 13px;\n"
+"	font-weight: 600;\n"
+"	color: rgb(0, 0, 0);\n"
+"}")
         self.verticalLayout_3 = QVBoxLayout(MoreFunctions)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout = QVBoxLayout()

@@ -19,7 +19,7 @@ class GraphManager:
             self.parent.graphLayout.addWidget(self.graph_tabs)
             layout_added = True
         else:
-            central_layout = self.parent.centralWidget().layout()
+            central_layout = self.parent.layout()
             if central_layout:
                 central_layout.addWidget(self.graph_tabs)
                 layout_added = True
