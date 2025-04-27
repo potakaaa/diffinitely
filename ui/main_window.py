@@ -230,7 +230,7 @@ class Ui_MainWindow(object):
         self.derivative_1st_label.setMaximumSize(QSize(432, 20))
         self.derivative_1st_label.setFont(font1)
 
-        self.verticalLayout_5.addWidget(self.derivative_1st_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
+        self.verticalLayout_5.addWidget(self.derivative_1st_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
 
         self.derivative_1st_edit = QLineEdit(self.right_widget)
         self.derivative_1st_edit.setObjectName(u"derivative_1st_edit")
@@ -253,7 +253,7 @@ class Ui_MainWindow(object):
         self.derivative_2nd_label.setMaximumSize(QSize(16777215, 20))
         self.derivative_2nd_label.setFont(font1)
 
-        self.verticalLayout_4.addWidget(self.derivative_2nd_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
+        self.verticalLayout_4.addWidget(self.derivative_2nd_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
 
         self.derivative_2nd_edit = QLineEdit(self.right_widget)
         self.derivative_2nd_edit.setObjectName(u"derivative_2nd_edit")
@@ -276,7 +276,7 @@ class Ui_MainWindow(object):
         self.nth_derivative_label.setMaximumSize(QSize(16777215, 20))
         self.nth_derivative_label.setFont(font1)
 
-        self.verticalLayout_3.addWidget(self.nth_derivative_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
+        self.verticalLayout_3.addWidget(self.nth_derivative_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
 
         self.nth_derivative_edit = QLineEdit(self.right_widget)
         self.nth_derivative_edit.setObjectName(u"nth_derivative_edit")
@@ -299,7 +299,7 @@ class Ui_MainWindow(object):
         self.integral_label.setMaximumSize(QSize(16777215, 20))
         self.integral_label.setFont(font1)
 
-        self.verticalLayout_10.addWidget(self.integral_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
+        self.verticalLayout_10.addWidget(self.integral_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
 
         self.integral_edit = QLineEdit(self.right_widget)
         self.integral_edit.setObjectName(u"integral_edit")

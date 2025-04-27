@@ -300,7 +300,7 @@
                 <property name="sizeConstraint">
                  <enum>QLayout::SizeConstraint::SetFixedSize</enum>
                 </property>
-                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
+                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignBottom">
                  <widget class="QLabel" name="derivative_1st_label">
                   <property name="maximumSize">
                    <size>
@@ -354,7 +354,7 @@
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_4">
-                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
+                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignBottom">
                  <widget class="QLabel" name="derivative_2nd_label">
                   <property name="maximumSize">
                    <size>
@@ -408,7 +408,7 @@
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_3">
-                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
+                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignBottom">
                  <widget class="QLabel" name="nth_derivative_label">
                   <property name="maximumSize">
                    <size>
@@ -462,7 +462,7 @@
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_10">
-                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
+                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignBottom">
                  <widget class="QLabel" name="integral_label">
                   <property name="maximumSize">
                    <size>
