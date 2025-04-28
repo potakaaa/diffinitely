@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QTabWidget, QHBoxLayout, QWidget, QVBoxLayout
+from PySide6.QtWidgets import QTabWidget, QHBoxLayout, QWidget, QVBoxLayout, QSizePolicy
 from .graph_widgets import GraphTab
 
 class GraphManager:
@@ -6,7 +6,8 @@ class GraphManager:
         self.parent = parent_window
 
         self.graph_tabs = QTabWidget(self.parent)
-        self.graph_tabs.setFixedSize(300, 300)
+        self.graph_tabs.setFixedSize(320, 300)
+        self.graph_tabs.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
 
         layout_added = False
         if hasattr(self.parent, 'rightLayout'):
