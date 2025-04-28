@@ -31,9 +31,8 @@ class GraphManager:
         if not layout_added:
             print("Warning: Couldn't add graph tabs to any layout")
 
-        # --- Function and Integral Tabs ---
+        # --- Function Tab ---
         self.function_tab = GraphTab(name="Function")
-        self.integral_tab = GraphTab(name="Integral")
 
         # --- Derivative Tab with Subtabs ---
         self.derivative_tab = QTabWidget()
@@ -47,7 +46,17 @@ class GraphManager:
         self.derivative_tab.addTab(self.derivative_2nd_tab, "2nd")
         self.derivative_tab.addTab(self.derivative_nth_tab, "Nth")
 
-        # Add top-level tabs
+        # --- Integral Tab with Subtabs ---
+        self.integral_tab = QTabWidget()
+        self.integral_tab.setTabPosition(QTabWidget.North)
+
+        self.indefinite_integral_tab = GraphTab(name="Indefinite Integral")
+        self.definite_integral_tab = GraphTab(name="Definite Integral")
+
+        self.integral_tab.addTab(self.indefinite_integral_tab, "Indefinite")
+        self.integral_tab.addTab(self.definite_integral_tab, "Definite")
+
+        # --- Add top-level tabs ---
         self.graph_tabs.addTab(self.function_tab, "Function")
         self.graph_tabs.addTab(self.derivative_tab, "Derivative")
         self.graph_tabs.addTab(self.integral_tab, "Integral")
@@ -62,9 +71,28 @@ class GraphManager:
         self.derivative_2nd_tab.plot_function(x_values, y2, f"{labels[1]} Derivative")
         self.derivative_nth_tab.plot_function(x_values, yn, f"{labels[2]} Derivative")
 
-    def plot_integral(self, x_values, y_values, label="Integral"):
-        """Plot integral"""
-        self.integral_tab.plot_function(x_values, y_values, label)
+    def plot_indefinite_integral(self, x_values, y_values, label="Indefinite Integral"):
+        """Plot indefinite integral"""
+        self.indefinite_integral_tab.plot_function(x_values, y_values, label)
+
+    def plot_definite_integral(self, x_values, y_values, a, b, label="Definite Integral"):
+        """Plot definite integral with shaded area"""
+        self.definite_integral_tab.clear_plot()
+        ax = self.definite_integral_tab.ax
+
+        # Plot the function normally
+        ax.plot(x_values, y_values, label="f(x)")
+
+        # Shade between a and b
+        mask = (x_values >= a) & (x_values <= b)
+        ax.fill_between(x_values, y_values, where=mask, alpha=0.3, label=f"∫ from {a} to {b}")
+
+        # Draw vertical lines at a and b
+        ax.axvline(a, color='red', linestyle='--', label=f"x = {a}")
+        ax.axvline(b, color='red', linestyle='--', label=f"x = {b}")
+
+        ax.legend()
+        self.definite_integral_tab.canvas.draw()
 
     def clear_all_plots(self):
         """Clear all tabs' plots"""
@@ -72,4 +100,5 @@ class GraphManager:
         self.derivative_1st_tab.clear_plot()
         self.derivative_2nd_tab.clear_plot()
         self.derivative_nth_tab.clear_plot()
-        self.integral_tab.clear_plot()
+        self.indefinite_integral_tab.clear_plot()
+        self.definite_integral_tab.clear_plot()

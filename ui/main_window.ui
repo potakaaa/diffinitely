@@ -13,7 +13,7 @@
   <property name="minimumSize">
    <size>
     <width>684</width>
-    <height>900</height>
+    <height>500</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -512,6 +512,60 @@
                   </property>
                  </widget>
                 </item>
+                <item>
+ <layout class="QVBoxLayout" name="verticalLayout_14">
+  <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignBottom">
+   <widget class="QLabel" name="definite_integral_label">
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Poppins</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Definite Integral</string>
+    </property>
+   </widget>
+  </item>
+  <item>
+   <widget class="QLineEdit" name="definite_integral_edit">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>35</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>44</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Poppins</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </item>
+ </layout>
+</item>
                </layout>
               </item>
              </layout>
@@ -726,58 +780,7 @@ QLabel {
              </property>
             </widget>
            </item>
-           <item row="1" column="2">
-            <widget class="QPushButton" name="less_button">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Poppins</family>
-               <pointsize>-1</pointsize>
-               <fontweight>Medium</fontweight>
-              </font>
-             </property>
-             <property name="text">
-              <string>&lt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3">
-            <widget class="QPushButton" name="great_button">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Poppins</family>
-               <pointsize>-1</pointsize>
-               <fontweight>Medium</fontweight>
-              </font>
-             </property>
-             <property name="text">
-              <string>&gt;</string>
-             </property>
-            </widget>
-           </item>
+           
            <item row="2" column="0">
             <widget class="QPushButton" name="fact_button">
              <property name="minimumSize">
@@ -830,58 +833,26 @@ QLabel {
              </property>
             </widget>
            </item>
-           <item row="2" column="2">
-            <widget class="QPushButton" name="less_equal_button">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Poppins</family>
-               <pointsize>-1</pointsize>
-               <fontweight>Medium</fontweight>
-              </font>
-             </property>
-             <property name="text">
-              <string>≤</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="3">
-            <widget class="QPushButton" name="great_equal_button">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Poppins</family>
-               <pointsize>-1</pointsize>
-               <fontweight>Medium</fontweight>
-              </font>
-             </property>
-             <property name="text">
-              <string>≥</string>
-             </property>
-            </widget>
-           </item>
+           <item row="1" column="2" colspan="2">
+    <widget class="QPushButton" name="definite_integral_button">
+        <property name="minimumSize">
+            <size>
+                <width>0</width>
+                <height>80</height> <!-- Make it bigger -->
+            </size>
+        </property>
+        <property name="font">
+            <font>
+                <family>Poppins</family>
+                <pointsize>14</pointsize> <!-- A bit larger font -->
+                <fontweight>Bold</fontweight>
+            </font>
+        </property>
+        <property name="text">
+            <string>∫ [Definite]</string>
+        </property>
+    </widget>
+</item>
            <item row="3" column="0">
             <widget class="QPushButton" name="x_fact_button">
              <property name="minimumSize">

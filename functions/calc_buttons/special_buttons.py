@@ -1,3 +1,4 @@
+from widgets.definite_input import DefiniteIntegralWidget
 class SpecialButtons:
     # idk unsay tawag ani, kana nalang "special buttons" :D
     def __init__(self, lineEdit):
@@ -21,18 +22,6 @@ class SpecialButtons:
     def close_parenthesis_button_clicked(self):
         self.lineEdit.setText(self.lineEdit.text() + ")")
 
-    def less_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "<")
-
-    def greater_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + ">")
-
-    def less_equal_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + "<=")
-
-    def greater_equal_button_clicked(self):
-        self.lineEdit.setText(self.lineEdit.text() + ">=")
-
     def factorial_button_clicked(self):
         self.lineEdit.setText(self.lineEdit.text() + "!")
         
@@ -50,3 +39,7 @@ class SpecialButtons:
 
     def apostrophe_button_clicked(self):
         self.lineEdit.setText(self.lineEdit.text() + "'")
+    
+    def definite_integral_button_clicked(self):
+        self.defIntegral = DefiniteIntegralWidget(self.lineEdit)
+        self.defIntegral.show()

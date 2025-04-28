@@ -2,6 +2,7 @@ from functions.calc_buttons.number_buttons import NumberButtons
 from functions.calc_buttons.operator_buttons import OperatorButtons
 from functions.calc_buttons.other_buttons import OtherButtons
 from functions.calc_buttons.special_buttons import SpecialButtons
+from widgets.definite_input import DefiniteIntegralWidget
 import re
 
 
@@ -31,7 +32,7 @@ class CalcButtonHandler:
         self.ui.mul_button.clicked.connect(lambda: self.operator_buttons.multiply_button_clicked())
         self.ui.div_button.clicked.connect(lambda: self.operator_buttons.divide_button_clicked())
 
-        self.ui.equal_button.clicked.connect(lambda: self.operator_buttons.calculate(self.ui))
+        self.ui.equal_button.clicked.connect(lambda: self.equals_button_handler())
         
         # Other buttons
         self.other_buttons = OtherButtons(self.ui.input_edit, self.ui.n_value_edit, self.ui.derivative_1st_edit, self.ui.derivative_2nd_edit, self.ui.nth_derivative_edit, self.ui.integral_edit,  self.ui)
@@ -49,15 +50,17 @@ class CalcButtonHandler:
         self.ui.a_b_button.clicked.connect(self.special_buttons.a_power_b_button_clicked)
         self.ui.open_parenthesis_button.clicked.connect(self.special_buttons.open_parenthesis_button_clicked)
         self.ui.close_parenthesis_button.clicked.connect(self.special_buttons.close_parenthesis_button_clicked)
-        self.ui.less_button.clicked.connect(self.special_buttons.less_button_clicked)
-        self.ui.great_button.clicked.connect(self.special_buttons.greater_button_clicked)
-        self.ui.less_equal_button.clicked.connect(self.special_buttons.less_equal_button_clicked)
-        self.ui.great_equal_button.clicked.connect(self.special_buttons.greater_equal_button_clicked)
+
         self.ui.fact_button.clicked.connect(self.special_buttons.factorial_button_clicked)
         self.ui.x_fact_button.clicked.connect(self.special_buttons.x_fact_button_clicked)
         self.ui.apos_button.clicked.connect(self.special_buttons.apostrophe_button_clicked)
         self.ui.percent_button.clicked.connect(self.special_buttons.percent_button_clicked)
         self.ui.sqrt_button.clicked.connect(self.special_buttons.sqrt_button_clicked)
         self.ui.pi_button.clicked.connect(self.special_buttons.pi_button_clicked)
+        self.ui.definite_integral_button.clicked.connect(self.special_buttons.definite_integral_button_clicked)
 
-    
+    def equals_button_handler(self):
+        if hasattr(self.special_buttons, 'defIntegral') and self.special_buttons.defIntegral is not None:
+            self.operator_buttons.calculate(self.ui, self.special_buttons.defIntegral)
+        else:
+            self.operator_buttons.calculate(self.ui, DefiniteIntegralWidget(self.ui.input_edit))

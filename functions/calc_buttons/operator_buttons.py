@@ -22,8 +22,13 @@ class OperatorButtons:
     def divide_button_clicked(self):
         self.lineEdit.setText(self.lineEdit.text() + "/")
 
-    def equals_button_clicked(self, n_value_edit, deriv_1, deriv_2, n_deriv, integral):
+    def equals_button_clicked(self, n_value_edit, deriv_1, deriv_2, n_deriv, integral, definite_integral_result, definiteWidget):
         n_value = 1 if n_value_edit.text() == "" else int(n_value_edit.text())
+
+        definite_integral_a = definiteWidget.get_a_value()
+        definite_integral_b = definiteWidget.get_b_value()
+
+
         
         try:
             safe_input = safe_input_validator(self.lineEdit.text())
@@ -31,16 +36,18 @@ class OperatorButtons:
             second_derivative = sp.diff(first_derivative, self.x)
             nth_derivative = sp.diff(safe_input, self.x, n_value)
             integral_result = sp.integrate(safe_input, self.x)
+            definite_integral = sp.integrate(safe_input, (self.x, definite_integral_a, definite_integral_b))
 
             deriv_1.setText(result_markup(str(first_derivative)))
             deriv_2.setText(result_markup(str(second_derivative)))
             n_deriv.setText(result_markup(str(nth_derivative)))
             integral.setText(result_markup(str(integral_result)))
+            definite_integral_result.setText(result_markup(str(definite_integral)))
         
         except Exception as e:
             QMessageBox.critical(None, "Input Error", "Error evaluating operation. Please fix your input!")
 
-    def calculate(self, ui):
+    def calculate(self, ui, definite_widget):
         # This method will be called when the equal button is clicked
         # First, let your existing equals_button_clicked method handle the calculation
         self.ui = ui
@@ -50,7 +57,9 @@ class OperatorButtons:
             self.ui.derivative_1st_edit,
             self.ui.derivative_2nd_edit,
             self.ui.nth_derivative_edit,
-            self.ui.integral_edit
+            self.ui.integral_edit,
+            self.ui.definite_integral_edit,
+            definite_widget
         )
         
         try:
@@ -78,7 +87,14 @@ class OperatorButtons:
                 self.evaluate_function(self.ui.derivative_2nd_edit.text(), x_values),
                 self.evaluate_function(self.ui.nth_derivative_edit.text(), x_values),
             )
-            self.ui.graph_manager.plot_integral(x_values, integral_y, f"∫f(x)dx = {integral_expr}")
+            self.ui.graph_manager.plot_indefinite_integral(x_values, integral_y, f"∫f(x)dx = {integral_expr}")
+            self.ui.graph_manager.plot_definite_integral(
+                x_values,
+                integral_y,
+                definite_widget.get_a_value(),
+                definite_widget.get_b_value(),
+                f"∫[a,b] f(x)dx = {integral_expr}"
+            )
             
         except Exception as e:
             # Handle errors
@@ -122,8 +138,12 @@ class OperatorButtons:
         }
 
         try:
-            y = eval(expr, {"__builtins__": {}}, safe_globals)
-            return np.array(y)
+            y = eval(expr, {"_builtins_": {}}, safe_globals)
+            if np.isscalar(y):
+                y = np.full_like(x_values, y)
+            else:
+                y = np.array(y)
+            return y
         except Exception as e:
             print(f"Error evaluating function: {e}")
             return np.zeros_like(x_values)

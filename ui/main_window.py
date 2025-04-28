@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(684, 900)
-        MainWindow.setMinimumSize(QSize(684, 900))
+        MainWindow.setMinimumSize(QSize(684, 500))
         MainWindow.setMaximumSize(QSize(896, 900))
         font = QFont()
         font.setFamilies([u"Poppins"])
@@ -312,6 +312,29 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.integral_edit)
 
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.definite_integral_label = QLabel(self.right_widget)
+        self.definite_integral_label.setObjectName(u"definite_integral_label")
+        self.definite_integral_label.setMaximumSize(QSize(16777215, 20))
+        self.definite_integral_label.setFont(font1)
+
+        self.verticalLayout_14.addWidget(self.definite_integral_label, 0, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
+
+        self.definite_integral_edit = QLineEdit(self.right_widget)
+        self.definite_integral_edit.setObjectName(u"definite_integral_edit")
+        sizePolicy.setHeightForWidth(self.definite_integral_edit.sizePolicy().hasHeightForWidth())
+        self.definite_integral_edit.setSizePolicy(sizePolicy)
+        self.definite_integral_edit.setMinimumSize(QSize(0, 35))
+        self.definite_integral_edit.setMaximumSize(QSize(16777215, 44))
+        self.definite_integral_edit.setFont(font1)
+        self.definite_integral_edit.setReadOnly(True)
+
+        self.verticalLayout_14.addWidget(self.definite_integral_edit)
+
+
+        self.verticalLayout_10.addLayout(self.verticalLayout_14)
+
 
         self.verticalLayout_6.addLayout(self.verticalLayout_10)
 
@@ -411,22 +434,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.close_parenthesis_button, 1, 1, 1, 1)
 
-        self.less_button = QPushButton(self.bottom_widget)
-        self.less_button.setObjectName(u"less_button")
-        self.less_button.setMinimumSize(QSize(0, 40))
-        self.less_button.setMaximumSize(QSize(16777215, 16777215))
-        self.less_button.setFont(font3)
-
-        self.gridLayout_2.addWidget(self.less_button, 1, 2, 1, 1)
-
-        self.great_button = QPushButton(self.bottom_widget)
-        self.great_button.setObjectName(u"great_button")
-        self.great_button.setMinimumSize(QSize(0, 40))
-        self.great_button.setMaximumSize(QSize(16777215, 16777215))
-        self.great_button.setFont(font3)
-
-        self.gridLayout_2.addWidget(self.great_button, 1, 3, 1, 1)
-
         self.fact_button = QPushButton(self.bottom_widget)
         self.fact_button.setObjectName(u"fact_button")
         self.fact_button.setMinimumSize(QSize(0, 40))
@@ -443,21 +450,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.apos_button, 2, 1, 1, 1)
 
-        self.less_equal_button = QPushButton(self.bottom_widget)
-        self.less_equal_button.setObjectName(u"less_equal_button")
-        self.less_equal_button.setMinimumSize(QSize(0, 40))
-        self.less_equal_button.setMaximumSize(QSize(16777215, 16777215))
-        self.less_equal_button.setFont(font3)
+        self.definite_integral_button = QPushButton(self.bottom_widget)
+        self.definite_integral_button.setObjectName(u"definite_integral_button")
+        self.definite_integral_button.setMinimumSize(QSize(0, 80))
+        font4 = QFont()
+        font4.setFamilies([u"Poppins"])
+        font4.setPointSize(14)
+        font4.setWeight(QFont.Bold)
+        self.definite_integral_button.setFont(font4)
 
-        self.gridLayout_2.addWidget(self.less_equal_button, 2, 2, 1, 1)
-
-        self.great_equal_button = QPushButton(self.bottom_widget)
-        self.great_equal_button.setObjectName(u"great_equal_button")
-        self.great_equal_button.setMinimumSize(QSize(0, 40))
-        self.great_equal_button.setMaximumSize(QSize(16777215, 16777215))
-        self.great_equal_button.setFont(font3)
-
-        self.gridLayout_2.addWidget(self.great_equal_button, 2, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.definite_integral_button, 1, 2, 1, 2)
 
         self.x_fact_button = QPushButton(self.bottom_widget)
         self.x_fact_button.setObjectName(u"x_fact_button")
@@ -668,11 +670,11 @@ class Ui_MainWindow(object):
 
         self.history_list = QListWidget(self.bottom_widget)
         self.history_list.setObjectName(u"history_list")
-        font4 = QFont()
-        font4.setFamilies([u"Poppins"])
-        font4.setPointSize(11)
-        font4.setBold(False)
-        self.history_list.setFont(font4)
+        font5 = QFont()
+        font5.setFamilies([u"Poppins"])
+        font5.setPointSize(11)
+        font5.setBold(False)
+        self.history_list.setFont(font5)
 
         self.verticalLayout_9.addWidget(self.history_list)
 
@@ -754,18 +756,16 @@ class Ui_MainWindow(object):
         self.derivative_2nd_label.setText(QCoreApplication.translate("MainWindow", u"2nd Derivative", None))
         self.nth_derivative_label.setText(QCoreApplication.translate("MainWindow", u"Nth Derivative", None))
         self.integral_label.setText(QCoreApplication.translate("MainWindow", u"Integral", None))
+        self.definite_integral_label.setText(QCoreApplication.translate("MainWindow", u"Definite Integral", None))
         self.x_button.setText(QCoreApplication.translate("MainWindow", u"x", None))
         self.y_button.setText(QCoreApplication.translate("MainWindow", u"y", None))
         self.a_2_button.setText(QCoreApplication.translate("MainWindow", u"a\u00b2", None))
         self.a_b_button.setText(QCoreApplication.translate("MainWindow", u"a\u1d47", None))
         self.open_parenthesis_button.setText(QCoreApplication.translate("MainWindow", u"(", None))
         self.close_parenthesis_button.setText(QCoreApplication.translate("MainWindow", u")", None))
-        self.less_button.setText(QCoreApplication.translate("MainWindow", u"<", None))
-        self.great_button.setText(QCoreApplication.translate("MainWindow", u">", None))
         self.fact_button.setText(QCoreApplication.translate("MainWindow", u"!", None))
         self.apos_button.setText(QCoreApplication.translate("MainWindow", u"'", None))
-        self.less_equal_button.setText(QCoreApplication.translate("MainWindow", u"\u2264", None))
-        self.great_equal_button.setText(QCoreApplication.translate("MainWindow", u"\u2265", None))
+        self.definite_integral_button.setText(QCoreApplication.translate("MainWindow", u"\u222b [Definite]", None))
         self.x_fact_button.setText(QCoreApplication.translate("MainWindow", u"x!", None))
         self.percent_button.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.sqrt_button.setText(QCoreApplication.translate("MainWindow", u"\u221a", None))

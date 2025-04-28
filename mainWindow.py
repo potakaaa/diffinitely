@@ -5,6 +5,7 @@ from ui.main_window import Ui_MainWindow
 from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
 from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler, FileButtonsHandler, EditButtonsHandler
 from graphs.graph_manager import GraphManager
+from widgets.definite_input import DefiniteIntegralWidget
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
