@@ -22,20 +22,25 @@ class OperatorButtons:
     def divide_button_clicked(self):
         self.lineEdit.setText(self.lineEdit.text() + "/")
 
-    def equals_button_clicked(self, n_value_edit, deriv_1, deriv_2, n_deriv, integral, definite_integral_result, definiteWidget):
+    def equals_button_clicked(self, n_value_edit, deriv_1, deriv_2, n_label, n_deriv, integral, definite_integral_label, definite_integral_result, definiteWidget):
         n_value = 1 if n_value_edit.text() == "" else int(n_value_edit.text())
 
         definite_integral_a = definiteWidget.get_a_value()
         definite_integral_b = definiteWidget.get_b_value()
-
 
         
         try:
             safe_input = safe_input_validator(self.lineEdit.text())
             first_derivative = sp.diff(safe_input, self.x)
             second_derivative = sp.diff(first_derivative, self.x)
+
+            if n_deriv.text() == "":
+                n_label.setText("Nth Derivative (n=1)")
+
             nth_derivative = sp.diff(safe_input, self.x, n_value)
             integral_result = sp.integrate(safe_input, self.x)
+
+            definite_integral_label.setText(f"Definite Integral [{definite_integral_a}, {definite_integral_b}]")
             definite_integral = sp.integrate(safe_input, (self.x, definite_integral_a, definite_integral_b))
 
             deriv_1.setText(result_markup(str(first_derivative)))
@@ -56,8 +61,10 @@ class OperatorButtons:
             self.ui.n_value_edit,
             self.ui.derivative_1st_edit,
             self.ui.derivative_2nd_edit,
+            self.ui.n_value_label,
             self.ui.nth_derivative_edit,
             self.ui.integral_edit,
+            self.ui.definite_integral_label,
             self.ui.definite_integral_edit,
             definite_widget
         )
@@ -105,7 +112,7 @@ class OperatorButtons:
         if not expr or expr.strip() == "":
             return np.zeros_like(x_values)
 
-        expr = expr.replace('^', '**')
+        expr = safe_input_validator(expr)
 
         # Step 1: Protect function names by temporarily replacing them
         functions = ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'sqrt', 'log', 'log10', 'exp']

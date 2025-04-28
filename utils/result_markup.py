@@ -53,5 +53,3 @@ def result_markup(output):
     markup = replace_super_sub(markup)
 
     return markup
-
-print(result_markup("x^2 + 3*x + 5"))  # Example usage
