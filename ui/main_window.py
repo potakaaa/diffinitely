@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(684, 900)
-        MainWindow.setMinimumSize(QSize(684, 500))
+        MainWindow.setMinimumSize(QSize(684, 900))
         MainWindow.setMaximumSize(QSize(896, 900))
         font = QFont()
         font.setFamilies([u"Poppins"])
