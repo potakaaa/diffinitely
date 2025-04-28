@@ -324,12 +324,13 @@ class Ui_MainWindow(object):
         self.definite_integral_label.setObjectName(u"definite_integral_label")
         self.definite_integral_label.setFont(font1)
 
-        self.verticalLayout_6.addWidget(self.definite_integral_label)
+        self.verticalLayout_6.addWidget(self.definite_integral_label, 0, Qt.AlignmentFlag.AlignBottom)
 
         self.definite_integral_edit = QLineEdit(self.right_widget)
         self.definite_integral_edit.setObjectName(u"definite_integral_edit")
         self.definite_integral_edit.setMinimumSize(QSize(0, 35))
         self.definite_integral_edit.setMaximumSize(QSize(16777215, 44))
+        self.definite_integral_edit.setFont(font1)
 
         self.verticalLayout_6.addWidget(self.definite_integral_edit)
 

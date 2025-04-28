@@ -531,7 +531,7 @@
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_6">
-                <item>
+                <item alignment="Qt::AlignmentFlag::AlignBottom">
                  <widget class="QLabel" name="definite_integral_label">
                   <property name="font">
                    <font>
@@ -557,6 +557,12 @@
                     <width>16777215</width>
                     <height>44</height>
                    </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Poppins</family>
+                    <pointsize>11</pointsize>
+                   </font>
                   </property>
                  </widget>
                 </item>
