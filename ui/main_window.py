@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         self.left_widget.setMaximumSize(QSize(16777215, 16777215))
         self.left_widget.setFont(font1)
         self.verticalLayout_7 = QVBoxLayout(self.left_widget)
-        self.verticalLayout_7.setSpacing(6)
+        self.verticalLayout_7.setSpacing(20)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.verticalLayout_7.setContentsMargins(-1, 5, -1, -1)
         self.verticalLayout_2 = QVBoxLayout()

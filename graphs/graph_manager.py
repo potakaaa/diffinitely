@@ -6,7 +6,7 @@ class GraphManager:
         self.parent = parent_window
 
         self.graph_tabs = QTabWidget(self.parent)
-        self.graph_tabs.setFixedSize(320, 300)
+        self.graph_tabs.setFixedSize(320, 280)
         self.graph_tabs.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
 
         layout_added = False

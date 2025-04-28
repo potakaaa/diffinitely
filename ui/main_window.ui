@@ -105,7 +105,7 @@
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <property name="spacing">
-               <number>6</number>
+               <number>20</number>
               </property>
               <property name="topMargin">
                <number>5</number>
