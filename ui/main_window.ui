@@ -112,8 +112,14 @@
               </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_2">
+                <property name="spacing">
+                 <number>10</number>
+                </property>
                 <property name="rightMargin">
                  <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>10</number>
                 </property>
                 <item>
                  <layout class="QVBoxLayout" name="verticalLayout_12">
