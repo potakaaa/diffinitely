@@ -28,20 +28,21 @@ class OperatorButtons:
         definite_integral_a = definiteWidget.get_a_value()
         definite_integral_b = definiteWidget.get_b_value()
 
-        
         try:
             safe_input = safe_input_validator(self.lineEdit.text())
-            first_derivative = sp.diff(safe_input, self.x)
-            second_derivative = sp.diff(first_derivative, self.x)
+            expr = sp.sympify(safe_input)
+
+            first_derivative = sp.diff(expr, self.var_symbol)
+            second_derivative = sp.diff(first_derivative, self.var_symbol)
 
             if n_deriv.text() == "":
                 n_label.setText("Nth Derivative (n=1)")
 
-            nth_derivative = sp.diff(safe_input, self.x, n_value)
-            integral_result = sp.integrate(safe_input, self.x)
+            nth_derivative = sp.diff(expr, self.var_symbol, n_value)
+            integral_result = sp.integrate(expr, self.var_symbol)
 
             definite_integral_label.setText(f"Definite Integral [{definite_integral_a}, {definite_integral_b}]")
-            definite_integral = sp.integrate(safe_input, (self.x, definite_integral_a, definite_integral_b))
+            definite_integral = sp.integrate(expr, (self.var_symbol, definite_integral_a, definite_integral_b))
 
             deriv_1.setText(result_markup(str(first_derivative)))
             deriv_2.setText(result_markup(str(second_derivative)))
@@ -50,12 +51,26 @@ class OperatorButtons:
             definite_integral_result.setText(result_markup(str(definite_integral)))
         
         except Exception as e:
-            QMessageBox.critical(None, "Input Error", "Error evaluating operation. Please fix your input!")
+            QMessageBox.critical(None, "Input Error", f"Error evaluating operation: {e}")
+
+    
+    @staticmethod
+    def find_variable(expr):
+        expr = expr.replace(' ', '')
+        match = re.findall(r'[a-zA-Z]', expr)
+        if match:
+            return match[0]
+        else:
+            return 'x'
 
     def calculate(self, ui, definite_widget):
-        # This method will be called when the equal button is clicked
-        # First, let your existing equals_button_clicked method handle the calculation
         self.ui = ui
+        # 1. Get input
+        function_expr = self.ui.input_edit.text()
+
+        # 2. Find the correct variable first!
+        self.variable = self.find_variable(function_expr)
+        self.var_symbol = sp.Symbol(self.variable)
 
         self.equals_button_clicked(
             self.ui.n_value_edit,
@@ -70,51 +85,41 @@ class OperatorButtons:
         )
         
         try:
-            # Get function expression from input
-            function_expr = self.ui.input_edit.text()
+            var_values = np.linspace(-10, 10, 1000)
             
-            # Get derivative and integral expressions from the UI fields
-            derivative_expr = self.ui.derivative_1st_edit.text()
-            integral_expr = self.ui.integral_edit.text()
+            y_values = self.evaluate_function(function_expr, var_values)
+            integral_y = self.evaluate_function(self.ui.integral_edit.text(), var_values)
             
-            # Generate x values (adjust range as needed)
-            import numpy as np
-            x_values = np.linspace(-10, 10, 1000)
-            
-            # Calculate function values
-            y_values = self.evaluate_function(function_expr, x_values)
-    
-            integral_y = self.evaluate_function(integral_expr, x_values)
-            
-            # Plot using the graph manager
-            self.ui.graph_manager.plot_function(x_values, y_values, f"f(x) = {function_expr}")
+            self.ui.graph_manager.plot_function(var_values, y_values, f"f({self.variable}) = {function_expr}")
             self.ui.graph_manager.plot_derivative(
-                x_values,
-                self.evaluate_function(self.ui.derivative_1st_edit.text(), x_values),
-                self.evaluate_function(self.ui.derivative_2nd_edit.text(), x_values),
-                self.evaluate_function(self.ui.nth_derivative_edit.text(), x_values),
+                var_values,
+                self.evaluate_function(self.ui.derivative_1st_edit.text(), var_values),
+                self.evaluate_function(self.ui.derivative_2nd_edit.text(), var_values),
+                self.evaluate_function(self.ui.nth_derivative_edit.text(), var_values),
             )
-            self.ui.graph_manager.plot_indefinite_integral(x_values, integral_y, f"∫f(x)dx = {integral_expr}")
+            self.ui.graph_manager.plot_indefinite_integral(var_values, integral_y, f"∫f({self.variable})d{self.variable} = {self.ui.integral_edit.text()}")
             self.ui.graph_manager.plot_definite_integral(
-                x_values,
+                var_values,
                 integral_y,
                 definite_widget.get_a_value(),
                 definite_widget.get_b_value(),
-                f"∫[a,b] f(x)dx = {integral_expr}"
+                f"∫[{definite_widget.get_a_value()},{definite_widget.get_b_value()}] f({self.variable})d{self.variable}"
             )
             
         except Exception as e:
-            # Handle errors
             print(f"Error graphing: {e}")
+
 
 
     def evaluate_function(self, expr, x_values):
         if not expr or expr.strip() == "":
             return np.zeros_like(x_values)
 
+        expr = expr.replace('²', '**2')
+        expr = expr.replace('³', '**3')
         expr = safe_input_validator(expr)
 
-        # Step 1: Protect function names by temporarily replacing them
+        # Step 1: Protect function names
         functions = ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'sqrt', 'log', 'log10', 'exp']
         func_placeholders = {}
         for i, func in enumerate(functions):
@@ -122,11 +127,10 @@ class OperatorButtons:
             expr = re.sub(rf'\b{func}\b', placeholder, expr)
             func_placeholders[placeholder] = func
 
-        # Step 2: Insert multiplication signs safely
-        expr = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', expr)         # number followed by variable
-        expr = re.sub(r'([a-zA-Z])\(', r'\1*(', expr)             # variable followed by (
-
-        expr = re.sub(r'\)([a-zA-Z0-9])', r')*\1', expr)          # ) followed by variable or number
+        # Step 2: Insert multiplication signs safely (only for your detected variable)
+        expr = re.sub(rf'(\d)({self.variable})', r'\1*\2', expr)
+        expr = re.sub(rf'({self.variable})\(', r'\1*(', expr)
+        expr = re.sub(r'\)([a-zA-Z0-9])', r')*\1', expr)
 
         # Step 3: Restore the function names
         for placeholder, func in func_placeholders.items():
@@ -134,7 +138,7 @@ class OperatorButtons:
 
         # Step 4: Safe evaluation
         safe_globals = {
-            "x": x_values,
+            self.variable: x_values,
             "sin": np.sin, "cos": np.cos, "tan": np.tan,
             "sqrt": np.sqrt, "pi": np.pi, "e": np.e,
             "abs": np.abs, "log": np.log10, "ln": np.log,
@@ -145,7 +149,7 @@ class OperatorButtons:
         }
 
         try:
-            y = eval(expr, {"_builtins_": {}}, safe_globals)
+            y = eval(expr, {"__builtins__": {}}, safe_globals)
             if np.isscalar(y):
                 y = np.full_like(x_values, y)
             else:
