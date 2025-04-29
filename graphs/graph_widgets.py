@@ -21,6 +21,7 @@ class GraphTab(QWidget):
 
         # Allow the canvas to grow
         self.canvas.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.canvas.setMaximumWidth(330)
 
         self.main_layout.addWidget(self.canvas)
 
