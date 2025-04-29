@@ -6,9 +6,9 @@ class GraphManager:
         self.parent = parent_window
 
         self.graph_tabs = QTabWidget(self.parent)
-        self.graph_tabs.setFixedSize(320, 200)
-        self.graph_tabs.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        self.graph_tabs.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
+        # Try to add to one of the expected layouts
         layout_added = False
         if hasattr(self.parent, 'rightLayout'):
             self.parent.rightLayout.addWidget(self.graph_tabs)
@@ -79,20 +79,18 @@ class GraphManager:
     def plot_definite_integral(self, x_values, y_values, a, b, label="Definite Integral"):
         """Plot definite integral with shaded area"""
         self.definite_integral_tab.clear_plot()
+        self.definite_integral_tab.plot_function(x_values, y_values, label=label)
         ax = self.definite_integral_tab.ax
-
-        # Plot the function normally
-        ax.plot(x_values, y_values, label="f(x)")
 
         # Shade between a and b
         mask = (x_values >= a) & (x_values <= b)
         ax.fill_between(x_values, y_values, where=mask, alpha=0.3, label=f"∫ from {a} to {b}")
 
-        # Draw vertical lines at a and b
+        # Vertical bounds
         ax.axvline(a, color='red', linestyle='--', label=f"x = {a}")
         ax.axvline(b, color='red', linestyle='--', label=f"x = {b}")
 
-        ax.legend()
+        ax.legend(loc="upper right", fontsize=8)
         self.definite_integral_tab.canvas.draw()
 
     def clear_all_plots(self):
