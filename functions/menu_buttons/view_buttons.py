@@ -102,7 +102,10 @@ class FontManager:
             self.ui.clear_button, self.ui.definite_integral_button, self.ui.label
         ]
         for element in elements:
-            element.setFont(QFont('Poppins', self.current_font_size))
+            font = QFont('Poppins', self.current_font_size)
+            element.setFont(font)
+            element.setStyleSheet(f"font-family: Poppins; font-size: {self.current_font_size}pt;")
+
 
 class ViewButtons:
     def __init__(self, ui):
