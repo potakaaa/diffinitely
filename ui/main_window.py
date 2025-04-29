@@ -17,16 +17,16 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLayout, QLineEdit, QListWidget, QListWidgetItem,
-    QMainWindow, QMenu, QMenuBar, QPushButton,
-    QSizePolicy, QStatusBar, QVBoxLayout, QWidget)
+    QLayout, QLineEdit, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(684, 900)
-        MainWindow.setMinimumSize(QSize(684, 900))
+        MainWindow.resize(684, 700)
+        MainWindow.setMinimumSize(QSize(684, 700))
         MainWindow.setMaximumSize(QSize(896, 900))
         font = QFont()
         font.setFamilies([u"Poppins"])
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         self.left_widget.setMaximumSize(QSize(16777215, 16777215))
         self.left_widget.setFont(font1)
         self.verticalLayout_7 = QVBoxLayout(self.left_widget)
-        self.verticalLayout_7.setSpacing(20)
+        self.verticalLayout_7.setSpacing(6)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.verticalLayout_7.setContentsMargins(-1, 5, -1, -1)
         self.verticalLayout_2 = QVBoxLayout()
@@ -667,29 +667,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addLayout(self.verticalLayout_8)
 
-        self.verticalLayout_9 = QVBoxLayout()
-        self.verticalLayout_9.setSpacing(5)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(-1, -1, -1, 5)
-        self.history_label = QLabel(self.bottom_widget)
-        self.history_label.setObjectName(u"history_label")
-        self.history_label.setFont(font3)
-
-        self.verticalLayout_9.addWidget(self.history_label)
-
-        self.history_list = QListWidget(self.bottom_widget)
-        self.history_list.setObjectName(u"history_list")
-        font4 = QFont()
-        font4.setFamilies([u"Poppins"])
-        font4.setPointSize(11)
-        font4.setBold(False)
-        self.history_list.setFont(font4)
-
-        self.verticalLayout_9.addWidget(self.history_list)
-
-
-        self.horizontalLayout_3.addLayout(self.verticalLayout_9)
-
 
         self.verticalLayout.addWidget(self.bottom_widget)
 
@@ -800,7 +777,6 @@ class Ui_MainWindow(object):
         self.del_button.setText(QCoreApplication.translate("MainWindow", u"del", None))
         self.clear_button.setText(QCoreApplication.translate("MainWindow", u"clear", None))
         self.empty_button.setText("")
-        self.history_label.setText(QCoreApplication.translate("MainWindow", u"History", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuView.setTitle(QCoreApplication.translate("MainWindow", u"View", None))
         self.menuEdit.setTitle(QCoreApplication.translate("MainWindow", u"Edit", None))

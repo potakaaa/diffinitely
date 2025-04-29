@@ -17,7 +17,7 @@ class GraphTab(QWidget):
         self.sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.sizePolicy.setHorizontalStretch(1)
         self.sizePolicy.setVerticalStretch(1)
-        
+    
     def plot_function(self, x_values, y_values, label="Graph"):
         self.ax.clear()
         self.ax.plot(x_values, y_values, label=label)
