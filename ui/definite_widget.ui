@@ -30,6 +30,10 @@
   <property name="windowTitle">
    <string>Definite Integral Limits</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../public/resources.qrc">
+    <normaloff>:/logo/diffinitely_logo.png</normaloff>:/logo/diffinitely_logo.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">
 #DefiniteIntegralInput {
@@ -74,7 +78,7 @@ QLineEdit {
        <property name="font">
         <font>
          <family>Poppins</family>
-         <pointsize>11</pointsize>
+         <pointsize>-1</pointsize>
         </font>
        </property>
       </widget>
@@ -103,7 +107,7 @@ QLineEdit {
        <property name="font">
         <font>
          <family>Poppins</family>
-         <pointsize>11</pointsize>
+         <pointsize>-1</pointsize>
         </font>
        </property>
       </widget>
@@ -112,6 +116,8 @@ QLineEdit {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../public/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

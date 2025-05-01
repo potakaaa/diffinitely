@@ -28,7 +28,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>More Functions</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../public/resources.qrc">
+    <normaloff>:/logo/diffinitely_logo.png</normaloff>:/logo/diffinitely_logo.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#MoreFunctions {
@@ -199,6 +203,8 @@ QLabel {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../public/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

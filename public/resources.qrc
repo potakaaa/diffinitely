@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>diffinitely_logo.png</file>
+  </qresource>
+</RCC>

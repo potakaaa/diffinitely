@@ -17,6 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QPushButton,
     QSizePolicy, QVBoxLayout, QWidget)
+import ui.resources_rc
 
 class Ui_MoreFunctions(object):
     def setupUi(self, MoreFunctions):
@@ -28,6 +29,9 @@ class Ui_MoreFunctions(object):
         font = QFont()
         font.setFamilies([u"Poppins"])
         MoreFunctions.setFont(font)
+        icon = QIcon()
+        icon.addFile(u":/logo/diffinitely_logo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        MoreFunctions.setWindowIcon(icon)
         MoreFunctions.setStyleSheet(u"#MoreFunctions {\n"
 "	background-color: rgb(169, 178, 178);\n"
 "}\n"
@@ -136,7 +140,7 @@ class Ui_MoreFunctions(object):
     # setupUi
 
     def retranslateUi(self, MoreFunctions):
-        MoreFunctions.setWindowTitle(QCoreApplication.translate("MoreFunctions", u"Form", None))
+        MoreFunctions.setWindowTitle(QCoreApplication.translate("MoreFunctions", u"More Functions", None))
         self.others_label.setText(QCoreApplication.translate("MoreFunctions", u"Others", None))
         self.log_button.setText(QCoreApplication.translate("MoreFunctions", u"log", None))
         self.ln_button.setText(QCoreApplication.translate("MoreFunctions", u"ln", None))

@@ -17,6 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QSizePolicy,
     QVBoxLayout, QWidget)
+import ui.resources_rc
 
 class Ui_DefiniteIntegralInput(object):
     def setupUi(self, DefiniteIntegralInput):
@@ -28,6 +29,9 @@ class Ui_DefiniteIntegralInput(object):
         font = QFont()
         font.setFamilies([u"Poppins"])
         DefiniteIntegralInput.setFont(font)
+        icon = QIcon()
+        icon.addFile(u":/logo/diffinitely_logo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        DefiniteIntegralInput.setWindowIcon(icon)
         DefiniteIntegralInput.setStyleSheet(u"\n"
 "#DefiniteIntegralInput {\n"
 "    background-color: rgb(169, 178, 178);\n"
@@ -56,10 +60,7 @@ class Ui_DefiniteIntegralInput(object):
         self.a_value_edit.setObjectName(u"a_value_edit")
         self.a_value_edit.setMinimumSize(QSize(0, 35))
         self.a_value_edit.setMaximumSize(QSize(16777215, 44))
-        font1 = QFont()
-        font1.setFamilies([u"Poppins"])
-        font1.setPointSize(11)
-        self.a_value_edit.setFont(font1)
+        self.a_value_edit.setFont(font)
 
         self.limitsLayout.addWidget(self.a_value_edit)
 
@@ -72,7 +73,7 @@ class Ui_DefiniteIntegralInput(object):
         self.b_value_edit.setObjectName(u"b_value_edit")
         self.b_value_edit.setMinimumSize(QSize(0, 35))
         self.b_value_edit.setMaximumSize(QSize(16777215, 44))
-        self.b_value_edit.setFont(font1)
+        self.b_value_edit.setFont(font)
 
         self.limitsLayout.addWidget(self.b_value_edit)
 
