@@ -56,12 +56,19 @@ class OperatorButtons:
     
     @staticmethod
     def find_variable(expr):
-        expr = expr.replace(' ', '')
-        match = re.findall(r'[a-zA-Z]', expr)
-        if match:
-            return match[0]
-        else:
-            return 'x'
+        try:
+            parsed = sp.sympify(expr)
+            symbols = parsed.free_symbols
+            if symbols:
+                # Return a sorted list of symbols, prioritizing x and y
+                preferred_order = ['x', 'y']
+                sorted_symbols = sorted(symbols, key=lambda s: (preferred_order.index(str(s)) if str(s) in preferred_order else 99, str(s)))
+                return sorted_symbols  # Returns a list of symbols like [x, y]
+            else:
+                return [sp.Symbol('x')]  # Default to [x]
+        except Exception:
+            return [sp.Symbol('x')]
+
 
     def calculate(self, ui, definite_widget):
         self.ui = ui
@@ -69,8 +76,9 @@ class OperatorButtons:
         function_expr = self.ui.input_edit.text()
 
         # 2. Find the correct variable first!
-        self.variable = self.find_variable(function_expr)
-        self.var_symbol = sp.Symbol(self.variable)
+        var_symbols = self.find_variable(function_expr)
+        self.var_symbol = var_symbols[0]
+        self.variable = str(self.var_symbol)
 
         self.equals_button_clicked(
             self.ui.n_value_edit,

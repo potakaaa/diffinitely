@@ -1,13 +1,14 @@
 from widgets.more_buttons import MoreWidget
 
 class OtherButtons:
-    def __init__(self, lineEdit, n_value_edit, deriv_1, deriv_2, n_deriv, integral,ui):
+    def __init__(self, lineEdit, n_value_edit, deriv_1, deriv_2, n_deriv, integral, def_integral, ui):
         self.lineEdit = lineEdit
         self.n_value_edit = n_value_edit
         self.deriv_1 = deriv_1
         self.deriv_2 = deriv_2
         self.n_deriv = n_deriv
         self.integral = integral
+        self.def_integral = def_integral
         self.ui = ui
 
     def del_button_clicked(self):
@@ -20,6 +21,7 @@ class OtherButtons:
         self.n_deriv.setText("")
         self.integral.setText("")
         self.n_value_edit.setText("")
+        self.def_integral.setText("")
 
     def more_button_clicked(self):
         self.popup = MoreWidget(self.lineEdit)
