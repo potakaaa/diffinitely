@@ -4,6 +4,7 @@ import sympy as sp
 from PySide6.QtWidgets import QMessageBox
 import re
 import numpy as np
+from helper.c_remover import remove_plus_c
 
 class OperatorButtons:
     def __init__(self, lineEdit):
@@ -47,7 +48,7 @@ class OperatorButtons:
             deriv_1.setText(result_markup(str(first_derivative)))
             deriv_2.setText(result_markup(str(second_derivative)))
             n_deriv.setText(result_markup(str(nth_derivative)))
-            integral.setText(result_markup(str(integral_result)))
+            integral.setText(result_markup(str(integral_result) + f" + C"))
             definite_integral_result.setText(result_markup(str(definite_integral)))
         
         except Exception as e:
@@ -96,8 +97,9 @@ class OperatorButtons:
             var_values = np.linspace(-10, 10, 1000)
             
             y_values = self.evaluate_function(function_expr, var_values)
-            integral_y = self.evaluate_function(self.ui.integral_edit.text(), var_values)
-            
+            integral_y = self.evaluate_function(remove_plus_c(self.ui.integral_edit.text()), var_values)
+
+
             self.ui.graph_manager.plot_function(var_values, y_values, f"f({self.variable}) = {function_expr}")
             self.ui.graph_manager.plot_derivative(
                 var_values,
