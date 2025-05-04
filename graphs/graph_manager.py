@@ -77,13 +77,13 @@ class GraphManager:
         self.indefinite_integral_tab.plot_function(x_values, y_values, label)
 
     def plot_definite_integral(self, x_values, y_values, a, b, label="Definite Integral"):
-        """Plot definite integral with shaded area"""
+        """Plot definite integral with shaded area above the x-axis"""
         self.definite_integral_tab.clear_plot()
         self.definite_integral_tab.plot_function(x_values, y_values, label=label)
         ax = self.definite_integral_tab.ax
 
-        # Shade between a and b
-        mask = (x_values >= a) & (x_values <= b)
+        # Shade between a and b where y is above the x-axis
+        mask = (x_values >= a) & (x_values <= b) & (y_values >= 0)  # Ensure y_values are above the x-axis
         ax.fill_between(x_values, y_values, where=mask, alpha=0.3, label=f"∫ from {a} to {b}")
 
         # Vertical bounds

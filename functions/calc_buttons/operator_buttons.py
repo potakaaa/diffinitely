@@ -96,21 +96,27 @@ class OperatorButtons:
         try:
             var_values = np.linspace(-10000, 10000, 1000000)
             
-            y_values = self.evaluate_function(function_expr, var_values)
+            y_values = self.evaluate_function(function_expr, var_values)  # Original function values
             integral_y = self.evaluate_function(remove_plus_c(self.ui.integral_edit.text()), var_values)
 
-
+            # Plot original function
             self.ui.graph_manager.plot_function(var_values, y_values, f"f({self.variable}) = {function_expr}")
+
+            # Plot derivatives
             self.ui.graph_manager.plot_derivative(
                 var_values,
                 self.evaluate_function(self.ui.derivative_1st_edit.text(), var_values),
                 self.evaluate_function(self.ui.derivative_2nd_edit.text(), var_values),
                 self.evaluate_function(self.ui.nth_derivative_edit.text(), var_values),
             )
+
+            # Plot indefinite integral
             self.ui.graph_manager.plot_indefinite_integral(var_values, integral_y, f"∫f({self.variable})d{self.variable} = {self.ui.integral_edit.text()}")
+
+            # Plot definite integral with the original function (not the indefinite integral)
             self.ui.graph_manager.plot_definite_integral(
                 var_values,
-                integral_y,
+                y_values,  # Pass the original function's y-values here
                 definite_widget.get_a_value(),
                 definite_widget.get_b_value(),
                 f"∫[{definite_widget.get_a_value()},{definite_widget.get_b_value()}] f({self.variable})d{self.variable}"
@@ -118,6 +124,7 @@ class OperatorButtons:
             
         except Exception as e:
             print(f"Error graphing: {e}")
+
 
 
 
