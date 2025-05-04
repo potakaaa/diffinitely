@@ -99,7 +99,7 @@ class FontManager:
             self.ui.one_button, self.ui.two_button, self.ui.div_button, self.ui.six_button,
             self.ui.five_button, self.ui.eight_button, self.ui.mul_button, self.ui.add_button,
             self.ui.three_button, self.ui.equal_button, self.ui.more_button, self.ui.del_button,
-            self.ui.clear_button, self.ui.definite_integral_button, self.ui.label
+            self.ui.clear_button, self.ui.definite_integral_button, self.ui.label, self.ui.definite_integral_label
         ]
         for element in elements:
             font = QFont('Poppins', self.current_font_size)
