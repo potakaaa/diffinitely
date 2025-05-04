@@ -1,17 +1,37 @@
-import sympy as sp
-from sympy.parsing.sympy_parser import parse_expr
+import numpy as np
+import matplotlib.pyplot as plt
+from sympy import symbols, lambdify, integrate
 
-x = sp.symbols('x')
+def plot_definite_integral():
+    x = symbols('x')
+    
+    f_expr = 8*x - 2*x**2
+    
+    f = lambdify(x, f_expr, modules=['numpy'])
 
-f1 = "x**2 + 2*x + 1"
+    a, b = 0, 4 
 
-f1 = parse_expr(f1)
-f1_diff = sp.diff(f1, x)
-f1_n_diff = sp.diff(f1, x, 10)
-f1_integral = sp.integrate(f1, x)
+    x_vals = np.linspace(a, b, 500)
 
-print("Original function: ", f1)
-print("First derivative: ", f1_diff)
-print("Nth derivative: ", f1_n_diff)
-print("Integral: ", f1_integral)
+    y_vals = f(x_vals)
 
+    integral_value = integrate(f_expr, (x, a, b))
+
+    mask = y_vals >= 0
+    x_shade = x_vals[mask]
+    y_shade = y_vals[mask]
+
+    plt.plot(x_vals, y_vals, label="f(x) = 8x - 2x²")
+    
+    plt.fill_between(x_shade, y_shade, 0, where=mask, alpha=0.4, color='orange', label=f"Area under curve: {integral_value}")
+
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.title(f"Definite Integral: ∫[{a}, {b}] f(x) dx")
+    plt.xlabel('x')
+    plt.ylabel('f(x)')
+    plt.legend()
+
+    plt.show()
+
+
+plot_definite_integral()
