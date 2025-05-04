@@ -3,8 +3,7 @@ from functions.calc_buttons.operator_buttons import OperatorButtons
 from functions.calc_buttons.other_buttons import OtherButtons
 from functions.calc_buttons.special_buttons import SpecialButtons
 from widgets.definite_input import DefiniteIntegralWidget
-import re
-
+from PySide6.QtGui import QKeyEvent, Qt
 
 class CalcButtonHandler:
     def __init__(self, ui):
@@ -64,3 +63,51 @@ class CalcButtonHandler:
             self.operator_buttons.calculate(self.ui, self.special_buttons.defIntegral)
         else:
             self.operator_buttons.calculate(self.ui, DefiniteIntegralWidget(self.ui.input_edit))
+
+    def key_press_event_handler(self, event: QKeyEvent):
+        if event.key() == Qt.Key_Return or event.key() == Qt.Key_Enter:
+            self.equals_button_handler()
+        elif event.key() == Qt.Key_Backspace:
+            self.other_buttons.del_button_clicked()
+        elif event.key() == Qt.Key_Escape:
+            self.other_buttons.clear_button_clicked()
+        elif event.key() == Qt.Key_Delete:
+            self.other_buttons.clear_button_clicked()
+        elif event.key() == Qt.Key_Period:
+            self.number_buttons.dot_button_clicked()
+        elif event.key() == Qt.Key_Plus:
+            self.operator_buttons.add_button_clicked()
+        elif event.key() == Qt.Key_Minus:
+            self.operator_buttons.subtract_button_clicked()
+        elif event.key() == Qt.Key_Asterisk:
+            self.operator_buttons.multiply_button_clicked()
+        elif event.key() == Qt.Key_Slash:
+            self.operator_buttons.divide_button_clicked()
+        elif event.key() == Qt.Key_0:
+            self.number_buttons.zero_button_clicked()
+        elif event.key() == Qt.Key_1:
+            self.number_buttons.one_button_clicked()
+        elif event.key() == Qt.Key_2:
+            self.number_buttons.two_button_clicked()
+        elif event.key() == Qt.Key_3:
+            self.number_buttons.three_button_clicked()
+        elif event.key() == Qt.Key_4:
+            self.number_buttons.four_button_clicked()
+        elif event.key() == Qt.Key_5:
+            self.number_buttons.five_button_clicked()
+        elif event.key() == Qt.Key_6:
+            self.number_buttons.six_button_clicked()
+        elif event.key() == Qt.Key_7:
+            self.number_buttons.seven_button_clicked()
+        elif event.key() == Qt.Key_8:
+            self.number_buttons.eight_button_clicked()
+        elif event.key() == Qt.Key_9:
+            self.number_buttons.nine_button_clicked()
+        elif event.key() == Qt.Key_X:
+            self.special_buttons.x_button_clicked()
+        elif event.key() == Qt.Key_Y:
+            self.special_buttons.y_button_clicked()
+        elif event.key() == Qt.Key_ParenLeft:
+            self.special_buttons.open_parenthesis_button_clicked()
+        elif event.key() == Qt.Key_ParenRight:
+            self.special_buttons.close_parenthesis_button_clicked()

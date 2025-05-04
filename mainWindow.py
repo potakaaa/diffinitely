@@ -6,6 +6,7 @@ from handler.calc_buttons.calc_buttons_handlers import CalcButtonHandler
 from handler.menu_buttons.menu_buttons_handlers import ViewButtonsHandler, FileButtonsHandler, EditButtonsHandler
 from graphs.graph_manager import GraphManager
 from functions.menu_buttons.view_buttons import ViewButtons, FontManager
+import webbrowser
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -36,6 +37,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Install the event filter to detect Ctrl+Scroll for zoom
         self.installEventFilter(self)
 
+        self.actionGithub_Link.triggered.connect(lambda: webbrowser.open("https://github.com/potakaaa/diffinitely"))
+
     def eventFilter(self, obj, event):
         if event.type() == QEvent.Type.Wheel and QApplication.keyboardModifiers() == Qt.ControlModifier:
             delta = event.angleDelta()
@@ -45,3 +48,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.font_manager.zoom_out()  # Zoom out
             return True
         return False
+    
+    def keyPressEvent(self, event):
+        self.calc_button_handler.key_press_event_handler(event)
