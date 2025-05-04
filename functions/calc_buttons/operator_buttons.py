@@ -94,7 +94,7 @@ class OperatorButtons:
         )
         
         try:
-            var_values = np.linspace(-10, 10, 1000)
+            var_values = np.linspace(-10000, 10000, 1000000)
             
             y_values = self.evaluate_function(function_expr, var_values)
             integral_y = self.evaluate_function(remove_plus_c(self.ui.integral_edit.text()), var_values)

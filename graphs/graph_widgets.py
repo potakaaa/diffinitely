@@ -52,6 +52,15 @@ class GraphTab(QWidget):
         x_range, y_range = x_max - x_min, y_max - y_min
         ratio = x_range / y_range if y_range != 0 else 1
 
+        # Cap the x_max if it's too large
+        if x_max > 10:
+            capped_x_max = 1.1 * max(x_values)  # 10% beyond max x_value
+            self.ax.set_xlim(x_min, capped_x_max)
+            x_max = capped_x_max
+            x_range = x_max - x_min
+            x_center = (x_min + x_max) / 2
+
+        # Maintain aspect ratio if within a reasonable range
         if 0.5 < ratio < 2:
             half_range = max(x_range, y_range) / 2
             self.ax.set_xlim(x_center - half_range, x_center + half_range)
@@ -60,11 +69,11 @@ class GraphTab(QWidget):
         else:
             self.ax.set_aspect('auto')
 
-        self.ax.legend(loc="upper right", fontsize=8)
-        self.ax.tick_params(labelsize=8)
-        self.ax.grid(True)
+            self.ax.legend(loc="upper right", fontsize=8)
+            self.ax.tick_params(labelsize=8)
+            self.ax.grid(True)
 
-        self.canvas.draw()
+            self.canvas.draw()
 
     def clear_plot(self):
         self.draw_default_grid()
